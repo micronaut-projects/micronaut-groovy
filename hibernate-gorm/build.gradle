@@ -1,0 +1,21 @@
+group = "io.micronaut.configuration"
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
+
+    compileOnly "io.micronaut:micronaut-inject-groovy"    
+    compile "org.codehaus.groovy:groovy:$groovyVersion"
+    compile project(":runtime-groovy")
+    compile project(":gorm-common")
+    compile "org.grails:grails-datastore-gorm-hibernate5:$gormVersion"
+
+    testCompile "io.micronaut:micronaut-inject-groovy"    
+
+    // included for Java 11
+    runtime 'javax.xml.bind:jaxb-api:2.3.1'
+
+    testRuntime "org.apache.tomcat:tomcat-jdbc"
+    testRuntime "com.h2database:h2"
+    testRuntime 'org.hibernate:hibernate-ehcache:5.1.9.Final'
+}
+//compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']

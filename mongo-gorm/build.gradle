@@ -1,0 +1,21 @@
+group = "io.micronaut.configuration"
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
+
+    compileOnly "io.micronaut:micronaut-inject-groovy"    
+    compile "org.codehaus.groovy:groovy:$groovyVersion"
+    compile project(":gorm-common")
+    compile "io.micronaut.configuration:micronaut-mongo-reactive:$micronautVersion"
+    compile "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
+    compile "org.grails:grails-datastore-gorm-mongodb:6.1.4.RELEASE"
+    compile "org.mongodb:mongo-java-driver:$mongoVersion"
+
+    compileOnly "io.micronaut:micronaut-http-server"    
+    compile project(":runtime-groovy")
+
+    testCompile "io.micronaut:micronaut-inject-groovy"    
+    testCompile "io.micronaut:micronaut-http-server"    
+    testCompile "io.micronaut:micronaut-http-client"    
+    testCompile "de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.1.1"
+}

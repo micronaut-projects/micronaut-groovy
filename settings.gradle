@@ -1,0 +1,8 @@
+rootProject.name = 'kafka'
+
+include 'function-groovy'
+include 'gorm-common'
+include 'hibernate-gorm'
+include 'mongo-gorm'
+include 'neo4j-gorm'
+include 'runtime-groovy'

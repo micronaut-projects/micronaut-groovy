@@ -1,0 +1,26 @@
+group = "io.micronaut.configuration"
+
+ext {
+    h2Version = '1.4.196'
+    tomcatJdbcVersion = '8.5.28'
+}
+
+dependencies {
+    compile "io.micronaut:micronaut-multitenancy:$micronautVersion"        
+    compile "org.grails:grails-datastore-core:$gormVersion"
+
+    testCompile "io.micronaut:micronaut-http-server"    
+    testCompile "io.micronaut:micronaut-http-client"    
+
+    testCompile "io.micronaut:micronaut-security-jwt"    
+    
+    testCompile "io.micronaut:micronaut-inject-groovy"    
+    testCompile project(":hibernate-gorm")
+
+    testRuntime "org.apache.tomcat:tomcat-jdbc"
+    testRuntime "com.h2database:h2"
+    testRuntime 'org.hibernate:hibernate-ehcache'
+
+    testRuntime "ch.qos.logback:logback-classic:1.2.3"
+    testRuntime 'org.glassfish:javax.el:3.0.1-b08'
+}

@@ -1,0 +1,23 @@
+group = "io.micronaut.configuration"
+
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
+
+    compileOnly "io.micronaut:micronaut-inject-groovy"    
+
+    compile "io.micronaut.configuration:micronaut-neo4j-bolt:$micronautVersion"
+    compile "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
+
+    compile project(":gorm-common")
+    
+    compile project(":runtime-groovy")
+    compile "org.grails:grails-datastore-gorm-neo4j:6.1.5.RELEASE"
+    testCompile "io.micronaut:micronaut-inject-groovy"    
+    testCompile "io.micronaut:micronaut-http-server"    
+    testCompile "io.micronaut:micronaut-http-client"    
+    testRuntime("org.neo4j.test:neo4j-harness") {
+        exclude group: "io.netty", module: "netty-all"
+    }
+    testRuntime 'io.netty:netty-transport-native-epoll:4.1.25.Final'
+}
