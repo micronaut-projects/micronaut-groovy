@@ -1,4 +1,4 @@
-rootProject.name = 'kafka'
+rootProject.name = 'groovy'
 
 include 'function-groovy'
 include 'gorm-common'
