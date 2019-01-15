@@ -67,7 +67,7 @@ The following should be noted regarding using GORM for Hibernate in Micronaut:
 
 * Each class you wish to be a GORM entity should be annotated with the `grails.gorm.annotation.Entity` annotation.
 * Each method that interacts with GORM should be annotated with GORM's `grails.gorm.transactions.Transactional` to ensure a session is present. You can also add the `@Transactional` annotation to the class.
-* By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the api:context.ApplicationContextBuilder[] when starting your application.
+* By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the https://docs.micronaut.io/latest/api/io/micronaut/context/ApplicationContextBuilder.html[ApplicationContextBuilder] when starting your application.
 
 
 ==== Using GORM for MongoDB
@@ -93,7 +93,7 @@ The following should be noted regarding using GORM for MongoDB in Micronaut:
 
 * Each class you wish to be a GORM entity should be annotated with the `grails.gorm.annotation.Entity` annotation.
 * Each method that interacts with GORM should be annotated with GORM's `grails.gorm.transactions.Transactional` to ensure a session is present. You can also add the `@Transactional` annotation to the class.
-* By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the api:context.ApplicationContextBuilder[] when starting your application.
+* By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the https://docs.micronaut.io/latest/api/io/micronaut/context/ApplicationContextBuilder.html[ApplicationContextBuilder] when starting your application.
 
 ==== Using GORM for Neo4j
 
