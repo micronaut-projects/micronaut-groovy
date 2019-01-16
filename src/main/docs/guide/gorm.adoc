@@ -110,11 +110,7 @@ For Groovy users and users familiar with Grails, special support has been added 
 
 To add support for GORM for Neo4j, first configure the Neo4j connection as per instructions earlier in the guide, then add the following dependency to your application:
 
-.build.gradle
-[source,groovy]
-----
 dependency:micronaut-neo4j-gorm[groupId="io.micronaut.configuration"]
-----
 
 The following should be noted regarding using GORM for Neo4j in Micronaut:
 
