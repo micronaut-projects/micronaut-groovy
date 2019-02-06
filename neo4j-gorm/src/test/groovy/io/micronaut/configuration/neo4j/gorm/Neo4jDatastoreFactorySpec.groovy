@@ -30,7 +30,7 @@ import javax.validation.constraints.NotBlank
  * @author graemerocher
  * @since 1.0
  */
-@Requires({ !jvm.isJava9Compatible() })
+@spock.lang.Requires({ !jvm.isJava9Compatible() })
 class Neo4jDatastoreFactorySpec extends Specification {
 
     @Shared @AutoCleanup ApplicationContext applicationContext = ApplicationContext.run('neo4j.uri': Neo4jBoltSettings.DEFAULT_URI)
