@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -261,19 +261,23 @@ implements io.micronaut.context.env.PropertySource</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/micronaut/function/groovy/FunctionScript.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>protected io.micronaut.context.ApplicationContextBuilder</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/micronaut/function/groovy/FunctionScript.html#newApplicationContextBuilder--">newApplicationContextBuilder</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected io.micronaut.inject.ExecutableMethod&lt;java.lang.Object,java.lang.Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/micronaut/function/groovy/FunctionScript.html#resolveFunction-io.micronaut.function.LocalFunctionRegistry-java.lang.String-">resolveFunction</a></span>(io.micronaut.function.LocalFunctionRegistry&nbsp;arg0,
                java.lang.String&nbsp;arg1)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/micronaut/function/groovy/FunctionScript.html#resolveFunctionName-io.micronaut.context.env.Environment-">resolveFunctionName</a></span>(io.micronaut.context.env.Environment&nbsp;arg0)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected io.micronaut.context.env.Environment</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/micronaut/function/groovy/FunctionScript.html#startEnvironment-io.micronaut.context.ApplicationContext-">startEnvironment</a></span>(io.micronaut.context.ApplicationContext&nbsp;arg0)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/micronaut/function/groovy/FunctionScript.html#startThis-io.micronaut.context.ApplicationContext-">startThis</a></span>(io.micronaut.context.ApplicationContext&nbsp;applicationContext)</code>&nbsp;</td>
 </tr>
@@ -490,6 +494,16 @@ protected&nbsp;void&nbsp;injectThis(io.micronaut.context.ApplicationContext&nbsp
 <h4>buildApplicationContext</h4>
 <pre>protected&nbsp;io.micronaut.context.ApplicationContext&nbsp;buildApplicationContext(@Nullable
                                                                           C&nbsp;arg0)</pre>
+</li>
+</ul>
+<a name="newApplicationContextBuilder--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newApplicationContextBuilder</h4>
+<pre>@Nonnull
+protected&nbsp;io.micronaut.context.ApplicationContextBuilder&nbsp;newApplicationContextBuilder()</pre>
 </li>
 </ul>
 <a name="startEnvironment-io.micronaut.context.ApplicationContext-">
