@@ -1,0 +1,8 @@
+group "io.micronaut.graphql"
+
+dependencies {
+    compileOnly "io.micronaut:micronaut-inject-groovy"
+
+    compile "org.grails:gorm-graphql:1.0.2"
+    compile "org.codehaus.groovy:groovy:$groovyVersion"
+}
