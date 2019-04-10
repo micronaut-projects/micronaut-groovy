@@ -7,7 +7,7 @@ dependencies {
     compile "org.codehaus.groovy:groovy:$groovyVersion"
     compile project(":runtime-groovy")
     compile project(":gorm-common")
-    compile "org.grails:grails-datastore-gorm-hibernate5:$gormVersion"
+    compile "org.grails:grails-datastore-gorm-hibernate5:$gormHibernateVersion"
 
     testCompile "io.micronaut:micronaut-inject-groovy"    
 
@@ -16,6 +16,6 @@ dependencies {
 
     testRuntime "org.apache.tomcat:tomcat-jdbc"
     testRuntime "com.h2database:h2"
-    testRuntime 'org.hibernate:hibernate-ehcache:5.3.7.Final'
+    testRuntime 'org.hibernate:hibernate-ehcache:5.4.0.Final'
 }
 //compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']

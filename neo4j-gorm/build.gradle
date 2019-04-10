@@ -12,7 +12,7 @@ dependencies {
     compile project(":gorm-common")
     
     compile project(":runtime-groovy")
-    compile "org.grails:grails-datastore-gorm-neo4j:$gormVersion"
+    compile "org.grails:grails-datastore-gorm-neo4j:$gormNeo4jVersion"
     testCompile "io.micronaut:micronaut-inject-groovy"    
     testCompile "io.micronaut:micronaut-http-server"    
     testCompile "io.micronaut:micronaut-http-client"    
