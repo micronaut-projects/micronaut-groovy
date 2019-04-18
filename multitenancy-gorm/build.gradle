@@ -19,7 +19,7 @@ dependencies {
 
     testRuntime "org.apache.tomcat:tomcat-jdbc"
     testRuntime "com.h2database:h2"
-    testRuntime 'org.hibernate:hibernate-ehcache'
+    testRuntime 'org.hibernate:hibernate-ehcache:5.4.0.Final'
 
     testRuntime "ch.qos.logback:logback-classic:1.2.3"
     testRuntime 'org.glassfish:javax.el:3.0.1-b08'
