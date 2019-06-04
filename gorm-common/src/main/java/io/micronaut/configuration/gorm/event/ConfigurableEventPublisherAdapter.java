@@ -76,7 +76,8 @@ public class ConfigurableEventPublisherAdapter extends ApplicationEventPublisher
                         return "Adapted: " + smartApplicationListener;
                     }
                 },
-                qualifier
+                qualifier,
+          false
             );
 
         }
