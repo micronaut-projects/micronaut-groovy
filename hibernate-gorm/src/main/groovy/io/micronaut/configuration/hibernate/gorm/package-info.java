@@ -23,10 +23,8 @@
 @Configuration
 @Requires(classes = HibernateDatastore.class)
 @Requires(classes = SessionFactory.class)
-@Requires(entities = Entity.class)
 package io.micronaut.configuration.hibernate.gorm;
 
-import grails.gorm.annotation.Entity;
 import io.micronaut.context.annotation.Configuration;
 import io.micronaut.context.annotation.Requires;
 import org.grails.orm.hibernate.HibernateDatastore;
