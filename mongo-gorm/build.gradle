@@ -7,7 +7,7 @@ dependencies {
     implementation "io.micronaut:micronaut-spring:$micronautVersion"    
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation project(":gorm-common")
-    implementation "io.micronaut.configuration:micronaut-mongo-reactive:1.1.0"
+    implementation "io.micronaut.configuration:micronaut-mongo-reactive:1.2.0"
     implementation "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
     implementation "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
     implementation "org.mongodb:mongo-java-driver:$mongoVersion"
