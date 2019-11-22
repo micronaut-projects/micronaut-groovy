@@ -1,4 +1,4 @@
 dependencies {
-    compile "org.codehaus.groovy:groovy:$groovyVersion"
-    compile "io.micronaut:micronaut-inject:$micronautVersion"    
+    implementation "org.codehaus.groovy:groovy:$groovyVersion"
+    implementation "io.micronaut:micronaut-inject:$micronautVersion"    
 }

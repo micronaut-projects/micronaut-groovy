@@ -4,18 +4,19 @@ dependencies {
     annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
 
     compileOnly "io.micronaut:micronaut-inject-groovy"    
-    compile "org.codehaus.groovy:groovy:$groovyVersion"
-    compile project(":gorm-common")
-    compile "io.micronaut.configuration:micronaut-mongo-reactive:1.1.0"
-    compile "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
-    compile "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
-    compile "org.mongodb:mongo-java-driver:$mongoVersion"
+    implementation "io.micronaut:micronaut-spring:$micronautVersion"    
+    implementation "org.codehaus.groovy:groovy:$groovyVersion"
+    implementation project(":gorm-common")
+    implementation "io.micronaut.configuration:micronaut-mongo-reactive:1.1.0"
+    implementation "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
+    implementation "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
+    implementation "org.mongodb:mongo-java-driver:$mongoVersion"
 
     compileOnly "io.micronaut:micronaut-http-server"    
-    compile project(":runtime-groovy")
+    implementation project(":runtime-groovy")
 
-    testCompile "io.micronaut:micronaut-inject-groovy"    
-    testCompile "io.micronaut:micronaut-http-server"    
-    testCompile "io.micronaut:micronaut-http-client"    
-    testCompile "de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.1.1"
+    testImplementation "io.micronaut:micronaut-inject-groovy"    
+    testImplementation "io.micronaut:micronaut-http-server"    
+    testImplementation "io.micronaut:micronaut-http-client"    
+    testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.1.1"
 }

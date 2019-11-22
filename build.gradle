@@ -47,7 +47,6 @@ subprojects { Project subproject ->
 
     
     repositories {
-        mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
     }
     
@@ -66,7 +65,7 @@ subprojects { Project subproject ->
 
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
-    apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-core/01e2b1ef1255b584e9e5c1965d334e1190e2ade5/gradle/publishing.gradle"
+    apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-build/3ca806eb776b72483a4c0fda5ff1a5caebe0c281/publishing.gradle"
         
 
     jar {
@@ -128,7 +127,9 @@ subprojects { Project subproject ->
     }
 
     task allDeps(type: DependencyReportTask) {}
+
+    apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-build/3ca806eb776b72483a4c0fda5ff1a5caebe0c281/license.gradle"  
 }
 
-apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-docs/v$micronautDocsVersion/gradle/docs.gradle"
+apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-docs/v${micronautDocsVersion}/gradle/docs.gradle"
 

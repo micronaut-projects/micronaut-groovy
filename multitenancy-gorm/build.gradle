@@ -6,21 +6,21 @@ ext {
 }
 
 dependencies {
-    compile "io.micronaut:micronaut-multitenancy:$micronautVersion"        
-    compile "org.grails:grails-datastore-core:$gormVersion"
+    implementation "io.micronaut:micronaut-multitenancy:$micronautVersion"        
+    implementation "org.grails:grails-datastore-core:$gormVersion"
 
-    testCompile "io.micronaut:micronaut-http-server"    
-    testCompile "io.micronaut:micronaut-http-client"    
+    testImplementation "io.micronaut:micronaut-http-server"    
+    testImplementation "io.micronaut:micronaut-http-client"    
 
-    testCompile "io.micronaut:micronaut-security-jwt"    
+    testImplementation "io.micronaut:micronaut-security-jwt"    
     
-    testCompile "io.micronaut:micronaut-inject-groovy"    
-    testCompile project(":hibernate-gorm")
+    testImplementation "io.micronaut:micronaut-inject-groovy"    
+    testImplementation project(":hibernate-gorm")
 
-    testRuntime "org.apache.tomcat:tomcat-jdbc"
-    testRuntime "com.h2database:h2"
-    testRuntime 'org.hibernate:hibernate-ehcache:5.4.0.Final'
+    testRuntimeOnly "org.apache.tomcat:tomcat-jdbc"
+    testRuntimeOnly "com.h2database:h2"
+    testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.4.0.Final'
 
-    testRuntime "ch.qos.logback:logback-classic:1.2.3"
-    testRuntime 'org.glassfish:javax.el:3.0.1-b08'
+    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
+    testRuntimeOnly 'org.glassfish:javax.el:3.0.1-b08'
 }

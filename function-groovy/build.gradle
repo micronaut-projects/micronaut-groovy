@@ -1,12 +1,12 @@
 dependencies {
 	compileOnly "io.micronaut:micronaut-inject-groovy"    
-    compile "io.micronaut:micronaut-function:$micronautVersion"    
-    compile project(":runtime-groovy")
+    implementation "io.micronaut:micronaut-function:$micronautVersion"    
+    implementation project(":runtime-groovy")
 
 
-    testCompile "io.micronaut:micronaut-inject-groovy"
-    testCompile "io.micronaut:micronaut-function-web"    
-    testRuntime "io.micronaut:micronaut-http-server-netty"    
-    testCompile "io.micronaut:micronaut-http-client"        
+    testImplementation "io.micronaut:micronaut-inject-groovy"
+    testImplementation "io.micronaut:micronaut-function-web"    
+    testRuntimeOnly "io.micronaut:micronaut-http-server-netty"    
+    testImplementation "io.micronaut:micronaut-http-client"        
 }
 //compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
