@@ -22,5 +22,5 @@ dependencies {
     testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.4.9.Final'
 
     testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
-    testRuntimeOnly 'org.glassfish:javax.el:3.0.1-b08'
+    testRuntimeOnly 'org.glassfish:javax.el:3.0.1-b11'
 }
