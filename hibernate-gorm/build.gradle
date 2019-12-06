@@ -17,6 +17,6 @@ dependencies {
 
     testRuntimeOnly "org.apache.tomcat:tomcat-jdbc"
     testRuntimeOnly "com.h2database:h2"
-    testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.4.9.Final'
+    testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.4.10.Final'
 }
 //compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
