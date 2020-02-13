@@ -27,6 +27,7 @@ import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer
 import org.codehaus.groovy.transform.ASTTransformation
 import org.codehaus.groovy.transform.GroovyASTTransformation
 
+
 /**
  * Evaluates type safe configurations converting property paths to calls to setProperty(..) and returning a map of
  * all assigned configuration values
@@ -36,6 +37,11 @@ import org.codehaus.groovy.transform.GroovyASTTransformation
  */
 @CompileStatic
 class ConfigurationEvaluator {
+
+    /**
+     * The system property, which enable/disable CompileStatic ASTTransformationCustomizer.
+     */
+    public static final String COMPILE_STATIC_PROPERTY = "micronaut.groovy.config.compileStatic"
 
     /**
      * Evaluate the configuration from the given input stream
@@ -64,11 +70,12 @@ class ConfigurationEvaluator {
      */
     Map<String, Object> evaluate(Reader reader) {
         CompilerConfiguration configuration = new CompilerConfiguration()
-        configuration.addCompilationCustomizers(
-            new ASTTransformationCustomizer(CompileStatic.class),
-            new ASTTransformationCustomizer(new ConfigTransform())
-        )
-
+        String compileStaticProp = System.getProperty(COMPILE_STATIC_PROPERTY)
+        boolean staticCompile = compileStaticProp == null || Boolean.parseBoolean(compileStaticProp)
+        if (staticCompile) {
+            configuration.addCompilationCustomizers(new ASTTransformationCustomizer(CompileStatic.class))
+        }
+        configuration.addCompilationCustomizers(new ASTTransformationCustomizer(new ConfigTransform()))
         GroovyShell shell = new GroovyShell(configuration)
         Script script = shell.parse(reader)
         script.run()
