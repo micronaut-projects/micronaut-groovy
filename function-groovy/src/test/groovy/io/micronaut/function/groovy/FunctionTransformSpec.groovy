@@ -338,4 +338,14 @@ Test test(Test test) {
         cleanup:
         server?.stop()
     }
+
+    void "test injecting configuration"() {
+        ApplicationContext ctx = ApplicationContext.run(["config.value": "Hello"])
+
+        expect:
+        ctx.getBean(EchoConfigFunction).getValue() == "Hello"
+
+        cleanup:
+        ctx.close()
+    }
 }
