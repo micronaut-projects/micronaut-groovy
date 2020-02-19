@@ -254,7 +254,7 @@ class FunctionTransform implements ASTTransformation {
 
     protected void implementSupplier(MethodNode functionMethod, ClassNode node) {
         def returnType = ClassHelper.getWrapper(functionMethod.returnType.plainNodeReference)
-        if (functionMethod.returnType.usingGenerics) {
+        if (returnType.usingGenerics) {
             returnType = GenericsUtils.makeClassSafeWithGenerics(returnType, functionMethod.returnType.genericsTypes)
         }
         node.addInterface(GenericsUtils.makeClassSafeWithGenerics(

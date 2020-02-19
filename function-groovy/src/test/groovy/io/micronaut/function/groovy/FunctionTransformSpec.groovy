@@ -80,6 +80,31 @@ int round(float value) {
         TestFunctionExitHandler.lastError == null
     }
 
+    void "test parse function returning pogo with generics"() {
+        given:
+        CompilerConfiguration configuration = new CompilerConfiguration()
+        configuration.optimizationOptions['micronaut.function.compile'] = true
+        GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
+
+        when:
+        Class functionClass = gcl.parseClass('''
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class PojoResult implements Serializable {
+    Map<String, String> mapTest
+}
+
+PojoResult getResult() {
+    null 
+}
+''')
+
+        then:
+        noExceptionThrown()
+        functionClass != null
+    }
+
     void 'test parse supplier'() {
         given:
         CompilerConfiguration configuration = new CompilerConfiguration()
