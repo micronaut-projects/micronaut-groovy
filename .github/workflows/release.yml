@@ -15,8 +15,8 @@ jobs:
         ref: ${{ github.head_ref }}
     - name: Publish to Bintray
       env:
-         BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
-         BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
+        BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
+        BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
       run: ./gradlew bintrayUpload docs
     - id: release_version
       run: echo ::set-output name=release_version::${GITHUB_REF:11}
@@ -32,6 +32,6 @@ jobs:
     - name: Synchronize Maven Central
       if: success()
       env:
-         BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
-         BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
+        BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
+        BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
       run: ./gradlew sWMC
