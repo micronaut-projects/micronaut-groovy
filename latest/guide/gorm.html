@@ -2,7 +2,16 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>4 GORM Modules 1.0.4</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="/cdn-cgi/apps/head/3cOPSgo5Omz84ycX7CvigfX4cpw.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-82213539-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-82213539-2');
+    </script>
+    <title>4 GORM Modules 1.1.2</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -70,7 +79,7 @@ function addJsClass() {
                 <div class="project">
                     <h1>4 GORM Modules</h1>
 
-                    <p><strong>Version:</strong> 1.0.4</p>
+                    <p><strong>Version:</strong> 1.1.2</p>
                 </div>
 
                 
@@ -311,11 +320,21 @@ For GORM for MongoDB you will need to configure the database name separately as 
 <div class="paragraph">
 <p>To add support for GORM for Neo4j, first configure the Neo4j connection as per instructions earlier in the guide, then add the following dependency to your application:</p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependency:micronaut-neo4j-gorm[groupId="io.micronaut.configuration"]</code></pre>
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.configuration:micronaut-neo4j-gorm'</span></code></pre>
 </div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.configuration&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-neo4j-gorm&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
 </div>
 <div class="paragraph">
 <p>The following should be noted regarding using GORM for Neo4j in Micronaut:</p>

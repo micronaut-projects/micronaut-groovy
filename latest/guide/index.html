@@ -84,7 +84,7 @@
         <h1>Micronaut Groovy</h1>
         <p></p>
         <p>Projects that enhance the Micronaut and Groovy language experience</p>
-        <p><strong>Version:</strong> 1.0.4</p>
+        <p><strong>Version:</strong> 1.1.2</p>
     </div>
     
 
@@ -463,11 +463,21 @@ For GORM for MongoDB you will need to configure the database name separately as 
 <div class="paragraph">
 <p>To add support for GORM for Neo4j, first configure the Neo4j connection as per instructions earlier in the guide, then add the following dependency to your application:</p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependency:micronaut-neo4j-gorm[groupId="io.micronaut.configuration"]</code></pre>
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.configuration:micronaut-neo4j-gorm'</span></code></pre>
 </div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.configuration&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-neo4j-gorm&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
 </div>
 <div class="paragraph">
 <p>The following should be noted regarding using GORM for Neo4j in Micronaut:</p>
