@@ -32,8 +32,6 @@ ext {
     homeSrcDir = file("src")
 }
 
-
-
 subprojects { Project subproject ->
 
     version project.projectVersion
@@ -43,7 +41,6 @@ subprojects { Project subproject ->
         isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
     }
 
-    
     repositories {
         maven { url "https://repo.grails.org/grails/core" }
     }
