@@ -2,3 +2,4 @@ introduction: Introduction
 config: Groovy Configuration
 functions: Groovy Functions
 gorm: GORM Modules
+repository: Repository
