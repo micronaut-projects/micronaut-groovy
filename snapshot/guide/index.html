@@ -377,6 +377,78 @@ hibernate:
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="_package_scan">Package scan</h3>
+<div class="paragraph">
+<p>For example, if all your GORM entities are in the package <code>example.micronaut.entities</code>.</p>
+</div>
+<div class="paragraph">
+<p>Instead of:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">import io.micronaut.runtime.Micronaut
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class Application {
+    static void main(String[] args) {
+        Micronaut.run(Application)
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">import io.micronaut.runtime.Micronaut
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class Application {
+    static void main(String[] args) {
+        Micronaut.build(args)
+                .packages("example.micronaut.entities")
+                .mainClass(Application.class)
+                .start()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In tests, where you start manually an <code>ApplicationContext</code>, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">class BookServiceSpec extends Specification {
+
+    @AutoCleanup
+    @Shared
+    ApplicationContext applicationContext = ApplicationContext.build()
+            .packages("example.micronaut.entities")
+            .build()
+            .start()
+
+    @Shared
+    @Subject
+    BookService bookService = applicationContext.getBean(BookService)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In tests, where you use <code>@MicronautTest</code>, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@MicronautTest(packages = "example.micronaut.entities")
+class MicronautTestBookServiceSpec extends Specification {
+
+    @Inject
+    BookService bookService</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
