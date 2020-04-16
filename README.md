@@ -7,7 +7,7 @@ This project includes integration between [Micronaut](http://micronaut.io) and t
 
 ## Documentation
 
-See the [Documentation](https://micronaut-projects.github.io/micronaut-groovy/latest/guide) for more information.
+See the Documentation ([latest](https://micronaut-projects.github.io/micronaut-groovy/latest/guide) and [snapshot](https://micronaut-projects.github.io/micronaut-groovy/snapshot/guide/)) for more information.
 
 ## Snapshots and Releases
 
