@@ -69,6 +69,72 @@ The following should be noted regarding using GORM for Hibernate in Micronaut:
 * Each method that interacts with GORM should be annotated with GORM's `grails.gorm.transactions.Transactional` to ensure a session is present. You can also add the `@Transactional` annotation to the class.
 * By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the https://docs.micronaut.io/latest/api/io/micronaut/context/ApplicationContextBuilder.html[ApplicationContextBuilder] when starting your application.
 
+=== Package scan
+
+For example, if all your GORM entities are in the package `example.micronaut.entities`.
+
+Instead of:
+
+[source,groovy]
+----
+import io.micronaut.runtime.Micronaut
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class Application {
+    static void main(String[] args) {
+        Micronaut.run(Application)
+    }
+}
+----
+
+Use:
+
+[source,groovy]
+----
+import io.micronaut.runtime.Micronaut
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class Application {
+    static void main(String[] args) {
+        Micronaut.build(args)
+                .packages("example.micronaut.entities")
+                .mainClass(Application.class)
+                .start()
+    }
+}
+----
+
+In tests, where you start manually an `ApplicationContext`, use:
+
+[source, groovy]
+----
+class BookServiceSpec extends Specification {
+
+    @AutoCleanup
+    @Shared
+    ApplicationContext applicationContext = ApplicationContext.build()
+            .packages("example.micronaut.entities")
+            .build()
+            .start()
+
+    @Shared
+    @Subject
+    BookService bookService = applicationContext.getBean(BookService)
+----
+
+In tests, where you use `@MicronautTest`, use:
+
+[source, groovy]
+----
+@MicronautTest(packages = "example.micronaut.entities")
+class MicronautTestBookServiceSpec extends Specification {
+
+    @Inject
+    BookService bookService
+
+----
 
 == Using GORM for MongoDB
 
