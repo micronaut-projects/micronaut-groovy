@@ -10,7 +10,6 @@ dependencies {
     implementation "io.micronaut.configuration:micronaut-mongo-reactive:1.1.0"
     implementation "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
     implementation "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
-    implementation "org.mongodb:mongo-java-driver:$mongoVersion"
 
     compileOnly "io.micronaut:micronaut-http-server"    
     implementation project(":runtime-groovy")
