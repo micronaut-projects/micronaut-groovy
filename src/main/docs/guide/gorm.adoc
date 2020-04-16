@@ -15,7 +15,7 @@ The table summarizes the GORM modules and the dependencies you should add to you
 
 |===
 
-==== Using GORM for Hibernate
+== Using GORM for Hibernate
 
 [TIP]
 .Using the CLI
@@ -70,7 +70,7 @@ The following should be noted regarding using GORM for Hibernate in Micronaut:
 * By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the https://docs.micronaut.io/latest/api/io/micronaut/context/ApplicationContextBuilder.html[ApplicationContextBuilder] when starting your application.
 
 
-==== Using GORM for MongoDB
+== Using GORM for MongoDB
 
 [TIP]
 .Using the CLI
@@ -95,7 +95,7 @@ The following should be noted regarding using GORM for MongoDB in Micronaut:
 * Each method that interacts with GORM should be annotated with GORM's `grails.gorm.transactions.Transactional` to ensure a session is present. You can also add the `@Transactional` annotation to the class.
 * By default Micronaut will scan for entities relative to your `Application` class. If you wish to customize this specify additional packages via the https://docs.micronaut.io/latest/api/io/micronaut/context/ApplicationContextBuilder.html[ApplicationContextBuilder] when starting your application.
 
-==== Using GORM for Neo4j
+== Using GORM for Neo4j
 
 [TIP]
 .Using the CLI
