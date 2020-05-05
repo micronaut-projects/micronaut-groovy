@@ -29,6 +29,7 @@ import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
 import org.springframework.transaction.PlatformTransactionManager
 
+import javax.inject.Named
 import javax.inject.Singleton
 import javax.sql.DataSource
 import java.util.stream.Stream
@@ -84,6 +85,7 @@ class HibernateDatastoreFactory {
     }
 
     @Bean
+    @Named("hibernate")
     @Singleton
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getTransactionManager()
