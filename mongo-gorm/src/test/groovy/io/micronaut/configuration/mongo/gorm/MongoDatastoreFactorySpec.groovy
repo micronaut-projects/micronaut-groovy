@@ -43,10 +43,9 @@ class MongoDatastoreFactorySpec extends Specification {
         new Team(name: "United").save(flush:true)
 
         then:
-        Team.count() == 1
-        Team.first().name == "United"
-        Team.first().dateCreated != null
-
+        Team.count() == old(Team.count()) + 1
+        Team.last().name == "United"
+        Team.last().dateCreated != null
     }
 
     @Rollback
