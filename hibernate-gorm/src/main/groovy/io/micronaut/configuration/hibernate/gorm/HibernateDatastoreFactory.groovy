@@ -24,6 +24,7 @@ import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
+import io.micronaut.context.annotation.Primary
 import org.grails.orm.hibernate.HibernateDatastore
 import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
@@ -82,6 +83,7 @@ class HibernateDatastoreFactory {
         ((HibernateConnectionSource) hibernateDatastore.getConnectionSources().defaultConnectionSource).getDataSource()
     }
 
+    @Primary
     @Named("hibernate")
     @Singleton
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
