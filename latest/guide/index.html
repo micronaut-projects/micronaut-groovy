@@ -28,6 +28,7 @@
 <body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
 
 <div id="table-of-content-nav-link" class="desktop">
+    <a id="theme-switcher" title="Switch to dark theme" href="javascript:switchTheme(true)"><i class="fa fa-moon-o"></i></a>
     <a title="Collapse/Open Table of contents" title="Hide Table of Contents" href="javascript:hideTableOfContents();" class="button">[ + ]</a>
 </div>
 
@@ -38,8 +39,7 @@
         </div>
         <div class="navLinks">
             <ul>
-                    <li>
-                        <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
+                    <li><div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
                             <a href="../guide/index.html" class="button">Table of contents</a>
                             <div id="nav-summary-childs" style="display:none;">
                                 
@@ -51,12 +51,26 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#gorm"><strong>4</strong><span>GORM Modules</span></a></div>
                                 
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
+                                
                             </div>
                         </div>
                     </li>
 
                 <li id="table-of-content-nav-link-mobile" class="mobile">
                     <a title="Scroll to Table of contents" href="javascript:scrollToTop();" class="button">Toc</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Configuration Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Conf</a>
                 </li>
             </ul>
 
@@ -76,6 +90,8 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-gorm"><a href="#gorm"><strong>4</strong><span>GORM Modules</span></a></div>
         
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
+        
         </div>
     </div>
     
@@ -84,11 +100,10 @@
         <h1>Micronaut Groovy</h1>
         <p></p>
         <p>Projects that enhance the Micronaut and Groovy language experience</p>
-        <p><strong>Version:</strong> 1.1.2</p>
+        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option value='https://micronaut-projects.github.io/micronaut-groovy/snapshot/guide/index.html'>1.1.3</option><option selected='selected' value='https://micronaut-projects.github.io/micronaut-groovy/1.1.3/guide/index.html'>1.1.3</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.2/guide/index.html'>1.1.2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.1/guide/index.html'>1.1.1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0/guide/index.html'>1.1.0</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0.RC2/guide/index.html'>1.1.0.RC2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0.RC1/guide/index.html'>1.1.0.RC1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.0.4/guide/index.html'>1.0.4</option></select></p>
     </div>
     
-
-<h1 id="introduction">1 Introduction</h1>
+<h1 id="introduction"><a class="anchor" href="#introduction"></a>1 Introduction</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/introduction.adoc"'>
@@ -101,8 +116,7 @@
 <p>This project includes various subprojects that improve the Micronaut experience for Groovy users.</p>
 </div>
 
-
-<h1 id="config">2 Groovy Configuration</h1>
+<h1 id="config"><a class="anchor" href="#config"></a>2 Groovy Configuration</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/config.adoc"'>
@@ -119,8 +133,9 @@
 </div>
 <div class="paragraph">
 <p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut:micronaut-runtime-groovy'</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut:micronaut-runtime-groovy")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -137,8 +152,7 @@
 <p>You can then define configuration Groovy config in <code>src/main/resources/application.groovy</code> in <a href="http://docs.groovy-lang.org/latest/html/gapi/groovy/util/ConfigSlurper.html">ConfigSlurper</a> format.</p>
 </div>
 
-
-<h1 id="functions">3 Groovy Functions</h1>
+<h1 id="functions"><a class="anchor" href="#functions"></a>3 Groovy Functions</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/functions.adoc"'>
@@ -167,8 +181,9 @@ If you have the Micronaut CLI installed you can quickly create a Groovy function
 </div>
 <div class="paragraph">
 <p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut:micronaut-function-groovy'</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut:micronaut-function-groovy")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -228,8 +243,7 @@ String hello(String name) {
 </div>
 </div>
 
-
-<h1 id="gorm">4 GORM Modules</h1>
+<h1 id="gorm"><a class="anchor" href="#gorm"></a>4 GORM Modules</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/gorm.adoc"'>
@@ -268,8 +282,9 @@ String hello(String name) {
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_using_gorm_for_hibernate">Using GORM for Hibernate</h4>
+<div class="sect1">
+<h2 id="_using_gorm_for_hibernate">Using GORM for Hibernate</h2>
+<div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -298,8 +313,9 @@ String hello(String name) {
 </div>
 <div class="paragraph">
 <p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.configuration:micronaut-hibernate-gorm'</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.configuration:micronaut-hibernate-gorm")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -361,9 +377,83 @@ hibernate:
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="_package_scan">Package scan</h3>
+<div class="paragraph">
+<p>For example, if all your GORM entities are in the package <code>example.micronaut.entities</code>.</p>
 </div>
-<div class="sect3">
-<h4 id="_using_gorm_for_mongodb">Using GORM for MongoDB</h4>
+<div class="paragraph">
+<p>Instead of:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">import io.micronaut.runtime.Micronaut
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class Application {
+    static void main(String[] args) {
+        Micronaut.run(Application)
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">import io.micronaut.runtime.Micronaut
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class Application {
+    static void main(String[] args) {
+        Micronaut.build(args)
+                .packages("example.micronaut.entities")
+                .mainClass(Application.class)
+                .start()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In tests, where you start manually an <code>ApplicationContext</code>, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">class BookServiceSpec extends Specification {
+
+    @AutoCleanup
+    @Shared
+    ApplicationContext applicationContext = ApplicationContext.build()
+            .packages("example.micronaut.entities")
+            .build()
+            .start()
+
+    @Shared
+    @Subject
+    BookService bookService = applicationContext.getBean(BookService)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In tests, where you use <code>@MicronautTest</code>, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@MicronautTest(packages = "example.micronaut.entities")
+class MicronautTestBookServiceSpec extends Specification {
+
+    @Inject
+    BookService bookService</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_gorm_for_mongodb">Using GORM for MongoDB</h2>
+<div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -392,8 +482,9 @@ hibernate:
 </div>
 <div class="paragraph">
 <p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.configuration:micronaut-mongo-gorm'</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.configuration:micronaut-mongo-gorm")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -435,8 +526,10 @@ For GORM for MongoDB you will need to configure the database name separately as 
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_using_gorm_for_neo4j">Using GORM for Neo4j</h4>
+</div>
+<div class="sect1">
+<h2 id="_using_gorm_for_neo4j">Using GORM for Neo4j</h2>
+<div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -465,8 +558,9 @@ For GORM for MongoDB you will need to configure the database name separately as 
 </div>
 <div class="paragraph">
 <p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.configuration:micronaut-neo4j-gorm'</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.configuration:micronaut-neo4j-gorm")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -495,6 +589,23 @@ For GORM for MongoDB you will need to configure the database name separately as 
 </li>
 </ul>
 </div>
+</div>
+</div>
+
+<h1 id="repository"><a class="anchor" href="#repository"></a>5 Repository</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/repository.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>You can find the source code of this project in this repository:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/micronaut-projects/micronaut-groovy">https://github.com/micronaut-projects/micronaut-groovy</a></p>
 </div>
 
     </div>
