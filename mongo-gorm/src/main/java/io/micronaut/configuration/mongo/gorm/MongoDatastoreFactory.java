@@ -83,7 +83,6 @@ public class MongoDatastoreFactory {
      * @return transactionManager
      */
     @Singleton
-    @Bean
     @Named("mongo")
     @Secondary
     PlatformTransactionManager transactionManager(MongoDatastore datastore) {

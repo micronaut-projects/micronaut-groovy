@@ -74,7 +74,6 @@ class Neo4jDatastoreFactory {
 
     @Singleton
     @Named("neo4j")
-    @Bean
     Neo4jDatastoreTransactionManager neo4jDatastoreTransactionManager(Neo4jDatastore datastore) {
         return datastore.getTransactionManager()
     }

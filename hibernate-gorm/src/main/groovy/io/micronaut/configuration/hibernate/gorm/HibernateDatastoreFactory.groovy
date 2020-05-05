@@ -72,19 +72,16 @@ class HibernateDatastoreFactory {
         return datastore
     }
 
-    @Bean
     @Singleton
     SessionFactory sessionFactory(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getSessionFactory()
     }
 
-    @Bean
     @Singleton
     DataSource dataSource(HibernateDatastore hibernateDatastore) {
         ((HibernateConnectionSource) hibernateDatastore.getConnectionSources().defaultConnectionSource).getDataSource()
     }
 
-    @Bean
     @Named("hibernate")
     @Singleton
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
