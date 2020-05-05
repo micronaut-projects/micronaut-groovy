@@ -52,6 +52,8 @@ class FunctionTransformSpec extends Specification {
         GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
 
         Class functionClass = gcl.parseClass('''
+package test
+
 import io.reactivex.Maybe
 Maybe<String> helloWorldMaster() {
     Maybe.just('hello-world-master')
@@ -69,6 +71,8 @@ Maybe<String> helloWorldMaster() {
         GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
 
         Class functionClass = gcl.parseClass('''
+package test
+
 int round(float value) {
     Math.round(value) 
 }
@@ -88,6 +92,8 @@ int round(float value) {
 
         when:
         Class functionClass = gcl.parseClass('''
+package test
+
 import groovy.transform.CompileStatic
 
 @CompileStatic
@@ -112,6 +118,8 @@ PojoResult getResult() {
         GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
 
         Class functionClass = gcl.parseClass('''
+package test
+
 int val() {
     return 10 
 }
@@ -131,6 +139,8 @@ int val() {
 
         when:
         gcl.parseClass('''
+package test
+
 int round(float value) {
     Math.round(value) 
 }
@@ -152,6 +162,8 @@ int round2(float value) {
 
         when:
         Class functionClass = gcl.parseClass('''
+package test
+
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.Field
 import io.micronaut.core.convert.*

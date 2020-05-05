@@ -4,11 +4,11 @@ dependencies {
     annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
 
     compileOnly "io.micronaut:micronaut-inject-groovy"    
-    implementation "io.micronaut:micronaut-spring:$micronautVersion"    
+    implementation "io.micronaut:micronaut-spring:2.0.1"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation project(":gorm-common")
     implementation "io.micronaut.configuration:micronaut-mongo-reactive:1.1.0"
-    implementation "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
+    implementation "io.micronaut.configuration:micronaut-hibernate-validator"
     implementation "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
     implementation "org.mongodb:mongo-java-driver:$mongoVersion"
 
@@ -17,6 +17,15 @@ dependencies {
 
     testImplementation "io.micronaut:micronaut-inject-groovy"    
     testImplementation "io.micronaut:micronaut-http-server"    
-    testImplementation "io.micronaut:micronaut-http-client"    
-    testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.2.0"
+    testImplementation "io.micronaut:micronaut-http-client"
+    testImplementation "org.testcontainers:spock:1.13.0"
+}
+
+//Workaround for https://github.com/micronaut-projects/micronaut-core/issues/3149
+configurations.all {
+    resolutionStrategy {
+        force "org.mongodb:mongo-java-driver:$mongoVersion"
+        force "org.mongodb:mongodb-driver-async:$mongoVersion"
+        force "io.micronaut.configuration:micronaut-mongo-reactive:1.1.0"
+    }
 }

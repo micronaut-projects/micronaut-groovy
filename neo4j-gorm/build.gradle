@@ -6,9 +6,9 @@ dependencies {
 
     compileOnly "io.micronaut:micronaut-inject-groovy"    
 
-    implementation "io.micronaut:micronaut-spring:$micronautVersion"    
+    implementation "io.micronaut:micronaut-spring:2.0.1"
     implementation "io.micronaut.configuration:micronaut-neo4j-bolt:1.2.0"
-    implementation "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
+    implementation "io.micronaut.configuration:micronaut-hibernate-validator"
 
     implementation project(":gorm-common")
     
@@ -21,4 +21,10 @@ dependencies {
         exclude group: "io.netty", module: "netty-all"
     }
     testRuntimeOnly 'io.netty:netty-transport-native-epoll:4.1.43.Final'
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "io.micronaut.configuration:micronaut-neo4j-bolt:1.2.0"
+    }
 }
