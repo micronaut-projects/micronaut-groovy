@@ -15,7 +15,7 @@
  */
 package io.micronaut.configuration.mongo.gorm;
 
-import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClient;
 import grails.gorm.annotation.Entity;
 import grails.mongodb.MongoEntity;
 import io.micronaut.configuration.gorm.configuration.GormPropertyResolverAdapter;

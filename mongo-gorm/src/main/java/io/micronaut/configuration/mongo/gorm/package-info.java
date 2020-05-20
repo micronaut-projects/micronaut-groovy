@@ -20,11 +20,13 @@
  * @since 1.0
  */
 @Configuration
-@RequiresMongo
+@Requires(classes = MongoClient.class)
+@Requires(property = MongoSettings.PREFIX)
 @Requires(entities = Entity.class)
 package io.micronaut.configuration.mongo.gorm;
 
+import com.mongodb.client.MongoClient;
 import grails.gorm.annotation.Entity;
-import io.micronaut.configuration.mongo.reactive.condition.RequiresMongo;
+import io.micronaut.configuration.mongo.core.MongoSettings;
 import io.micronaut.context.annotation.Configuration;
 import io.micronaut.context.annotation.Requires;

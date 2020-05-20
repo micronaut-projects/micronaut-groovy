@@ -15,13 +15,14 @@
  */
 package io.micronaut.configuration.mongo.gorm
 
-import com.mongodb.MongoClient
+import com.mongodb.client.MongoClient
 import grails.gorm.annotation.Entity
 import grails.gorm.transactions.Rollback
-import io.micronaut.configuration.mongo.reactive.MongoSettings
+import io.micronaut.configuration.mongo.core.MongoSettings
 import io.micronaut.context.ApplicationContext
 import org.grails.datastore.mapping.mongo.MongoDatastore
 import org.grails.datastore.mapping.validation.ValidationException
+import org.testcontainers.containers.GenericContainer
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
@@ -29,18 +30,32 @@ import spock.lang.Specification
 import javax.validation.constraints.NotBlank
 
 /**
- * @author graemerocher
- * @since 1.0
+ * @author graemerocher* @since 1.0
  */
 class MongoDatastoreFactorySpec extends Specification {
-    @Shared @AutoCleanup ApplicationContext applicationContext = ApplicationContext.build('mongodb.uri': MongoSettings.DEFAULT_URI)
-                                                                                   .mainClass(MongoDatastoreFactorySpec)
-                                                                                   .start()
+
+    @Shared
+    @AutoCleanup
+    GenericContainer mongo =
+            new GenericContainer("mongo:4.0")
+                    .withExposedPorts(27017)
+
+    @Shared
+    @AutoCleanup
+    ApplicationContext applicationContext
+
+    def setupSpec() {
+        mongo.start()
+        applicationContext = ApplicationContext.build((MongoSettings.MONGODB_URI): "mongodb://${mongo.containerIpAddress}:${mongo.getMappedPort(27017)}")
+                .mainClass(MongoDatastoreFactorySpec)
+                .start()
+    }
+
 
     @Rollback
     void "test configure GORM for MongoDB"() {
         when:
-        new Team(name: "United").save(flush:true)
+        new Team(name: "United").save(flush: true)
 
         then:
         Team.count() == old(Team.count()) + 1
@@ -51,7 +66,7 @@ class MongoDatastoreFactorySpec extends Specification {
     @Rollback
     void "test validation errors"() {
         when:
-        new Team(name: "").save(failOnError:true)
+        new Team(name: "").save(failOnError: true)
 
         then:
         thrown(ValidationException)
