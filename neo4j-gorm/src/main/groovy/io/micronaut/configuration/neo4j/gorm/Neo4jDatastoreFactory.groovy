@@ -31,6 +31,7 @@ import org.grails.datastore.gorm.neo4j.Neo4jDatastore
 import org.grails.datastore.gorm.neo4j.Neo4jDatastoreTransactionManager
 import org.neo4j.driver.v1.Driver
 
+import javax.inject.Named
 import javax.inject.Singleton
 import java.util.stream.Stream
 
@@ -72,7 +73,7 @@ class Neo4jDatastoreFactory {
     }
 
     @Singleton
-    @Bean
+    @Named("neo4j")
     Neo4jDatastoreTransactionManager neo4jDatastoreTransactionManager(Neo4jDatastore datastore) {
         return datastore.getTransactionManager()
     }

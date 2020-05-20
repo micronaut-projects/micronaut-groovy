@@ -24,11 +24,13 @@ import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
+import io.micronaut.context.annotation.Primary
 import org.grails.orm.hibernate.HibernateDatastore
 import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
 import org.springframework.transaction.PlatformTransactionManager
 
+import javax.inject.Named
 import javax.inject.Singleton
 import javax.sql.DataSource
 import java.util.stream.Stream
@@ -71,19 +73,18 @@ class HibernateDatastoreFactory {
         return datastore
     }
 
-    @Bean
     @Singleton
     SessionFactory sessionFactory(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getSessionFactory()
     }
 
-    @Bean
     @Singleton
     DataSource dataSource(HibernateDatastore hibernateDatastore) {
         ((HibernateConnectionSource) hibernateDatastore.getConnectionSources().defaultConnectionSource).getDataSource()
     }
 
-    @Bean
+    @Primary
+    @Named("hibernate")
     @Singleton
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getTransactionManager()
