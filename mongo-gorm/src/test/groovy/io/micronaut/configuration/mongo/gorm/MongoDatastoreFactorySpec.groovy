@@ -15,10 +15,10 @@
  */
 package io.micronaut.configuration.mongo.gorm
 
-import com.mongodb.MongoClient
+import com.mongodb.client.MongoClient
 import grails.gorm.annotation.Entity
 import grails.gorm.transactions.Rollback
-import io.micronaut.configuration.mongo.reactive.MongoSettings
+import io.micronaut.configuration.mongo.core.MongoSettings
 import io.micronaut.context.ApplicationContext
 import org.grails.datastore.mapping.mongo.MongoDatastore
 import org.grails.datastore.mapping.validation.ValidationException
