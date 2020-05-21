@@ -4,7 +4,6 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails:grails-docs:$grailsVersion"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
         classpath 'io.github.groovylang.groovydoc:groovydoc-gradle-plugin:1.0.1'
@@ -102,6 +101,7 @@ subprojects { Project subproject ->
 
         documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
         documentation "org.codehaus.groovy:groovy-dateutil:$groovyVersion"
+        documentation "com.github.javaparser:javaparser-core:3.15.14"
 
         testImplementation "cglib:cglib-nodep:3.3.0"
         testImplementation "org.objenesis:objenesis:3.1"
