@@ -24,6 +24,7 @@ import io.micronaut.configuration.neo4j.bolt.Neo4jBoltSettings
 import io.micronaut.context.ApplicationContext
 import org.springframework.transaction.PlatformTransactionManager
 import spock.lang.AutoCleanup
+import spock.lang.Requires
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -33,7 +34,7 @@ import javax.validation.constraints.NotBlank
  * @author graemerocher
  * @since 1.0
  */
-@spock.lang.Requires({ !jvm.isJava9Compatible() })
+@Requires({ !jvm.isJava9Compatible() })
 class Neo4jDatastoreFactorySpec extends Specification {
 
     @Shared @AutoCleanup ApplicationContext applicationContext = ApplicationContext.run('neo4j.uri': Neo4jBoltSettings.DEFAULT_URI)
