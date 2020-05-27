@@ -7,7 +7,7 @@ ext {
 
 dependencies {
     implementation "io.micronaut:micronaut-multitenancy:$micronautVersion"        
-    implementation "org.grails:grails-datastore-core:$gormVersion"
+    api "org.grails:grails-datastore-core:$gormVersion"
 
     testImplementation "io.micronaut:micronaut-http-server"    
     testImplementation "io.micronaut:micronaut-http-client"    
