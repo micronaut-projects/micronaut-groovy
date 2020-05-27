@@ -46,13 +46,12 @@ subprojects { Project subproject ->
     }
 
     repositories {
-        jcenter()
+        maven { url "https://repo.grails.org/grails/core" }
     }
     
     apply plugin:"groovy"
     apply plugin:"java-library"
     apply plugin: 'idea'
-    apply plugin: 'checkstyle'
     apply plugin: "com.github.ben-manes.versions"
 
     sourceCompatibility = '1.8'
