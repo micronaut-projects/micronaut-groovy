@@ -13,7 +13,7 @@ dependencies {
     implementation project(":gorm-common")
     
     implementation project(":runtime-groovy")
-    implementation "org.grails:grails-datastore-gorm-neo4j:$gormNeo4jVersion"
+    api "org.grails:grails-datastore-gorm-neo4j:$gormNeo4jVersion"
     testImplementation "io.micronaut:micronaut-inject-groovy"    
     testImplementation "io.micronaut:micronaut-http-server"    
     testImplementation "io.micronaut:micronaut-http-client"    

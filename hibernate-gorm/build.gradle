@@ -8,7 +8,7 @@ dependencies {
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation project(":runtime-groovy")
     implementation project(":gorm-common")
-    implementation "org.grails:grails-datastore-gorm-hibernate5:$gormHibernateVersion"
+    api "org.grails:grails-datastore-gorm-hibernate5:$gormHibernateVersion"
 
     testImplementation "io.micronaut:micronaut-inject-groovy"    
 
