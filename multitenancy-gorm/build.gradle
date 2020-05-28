@@ -7,7 +7,7 @@ ext {
 
 dependencies {
     implementation "io.micronaut:micronaut-multitenancy:$micronautVersion"        
-    implementation "org.grails:grails-datastore-core:$gormVersion"
+    api "org.grails:grails-datastore-core:$gormVersion"
 
     testImplementation "io.micronaut:micronaut-http-server"    
     testImplementation "io.micronaut:micronaut-http-client"    
@@ -19,7 +19,7 @@ dependencies {
 
     testRuntimeOnly "org.apache.tomcat:tomcat-jdbc"
     testRuntimeOnly "com.h2database:h2"
-    testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.4.15.Final'
+    testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.4.16.Final'
 
     testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testRuntimeOnly 'org.glassfish:javax.el:3.0.1-b11'

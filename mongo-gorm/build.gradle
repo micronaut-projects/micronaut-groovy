@@ -9,7 +9,7 @@ dependencies {
     implementation project(":gorm-common")
     implementation "io.micronaut.mongodb:micronaut-mongo-sync:2.1.0"
     implementation "io.micronaut.configuration:micronaut-hibernate-validator"
-    implementation "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
+    api "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
     implementation "org.mongodb:mongodb-driver-sync:$mongoVersion"
 
     compileOnly "io.micronaut:micronaut-http-server"    
@@ -18,5 +18,5 @@ dependencies {
     testImplementation "io.micronaut:micronaut-inject-groovy"    
     testImplementation "io.micronaut:micronaut-http-server"    
     testImplementation "io.micronaut:micronaut-http-client"
-    testImplementation "org.testcontainers:spock:1.13.0"
+    testImplementation "org.testcontainers:spock:1.14.2"
 }
