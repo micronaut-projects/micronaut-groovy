@@ -1,11 +1,11 @@
 /*
- * Copyright 2017-2018 original authors
+ * Copyright 2017-2020 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 package io.micronaut.function.groovy
+
+import io.micronaut.context.annotation.Property
+import io.micronaut.context.annotation.Value
 
 import static org.codehaus.groovy.ast.tools.GeneralUtils.args
 import static org.codehaus.groovy.ast.tools.GeneralUtils.block
@@ -80,6 +83,9 @@ import java.util.function.Supplier
 @GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
 class FunctionTransform implements ASTTransformation {
     public static final ClassNode FIELD_TYPE = ClassHelper.make(Field)
+    public static final ClassNode PROPERTY_ANNOTATION = ClassHelper.make(Property)
+    public static final ClassNode VALUE_ANNOTATION = ClassHelper.make(Value)
+
 
     @Override
     void visit(ASTNode[] nodes, SourceUnit source) {
@@ -157,7 +163,9 @@ class FunctionTransform implements ASTTransformation {
                                     DeclarationExpression de = (DeclarationExpression) exp
                                     def initial = de.getVariableExpression().getInitialExpression()
                                     if (initial == null) {
-                                        if (!de.getAnnotations(AstUtils.INJECT_ANNOTATION)) {
+                                        if (!de.getAnnotations(AstUtils.INJECT_ANNOTATION) &&
+                                                !de.getAnnotations(VALUE_ANNOTATION) &&
+                                                !de.getAnnotations(PROPERTY_ANNOTATION)) {
                                             de.addAnnotation(new AnnotationNode(AstUtils.INJECT_ANNOTATION))
                                         }
                                         new FieldASTTransformation().visit([new AnnotationNode(FIELD_TYPE), de] as ASTNode[], source)
@@ -195,7 +203,9 @@ class FunctionTransform implements ASTTransformation {
                         )
                     )
                     for (field in node.getFields()) {
-                        if (!field.getAnnotations(AstUtils.INJECT_ANNOTATION)) {
+                        if (!field.getAnnotations(AstUtils.INJECT_ANNOTATION) &&
+                                !field.getAnnotations(VALUE_ANNOTATION) &&
+                                !field.getAnnotations(PROPERTY_ANNOTATION)) {
                             field.addAnnotation(new AnnotationNode(AstUtils.INJECT_ANNOTATION))
                         }
                         def setterName = getSetterName(field.getName())
@@ -244,7 +254,7 @@ class FunctionTransform implements ASTTransformation {
 
     protected void implementSupplier(MethodNode functionMethod, ClassNode node) {
         def returnType = ClassHelper.getWrapper(functionMethod.returnType.plainNodeReference)
-        if (functionMethod.returnType.usingGenerics) {
+        if (returnType.usingGenerics) {
             returnType = GenericsUtils.makeClassSafeWithGenerics(returnType, functionMethod.returnType.genericsTypes)
         }
         node.addInterface(GenericsUtils.makeClassSafeWithGenerics(

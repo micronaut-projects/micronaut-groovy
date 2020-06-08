@@ -1,11 +1,11 @@
 /*
- * Copyright 2017-2018 original authors
+ * Copyright 2017-2020 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,8 +29,9 @@ import io.micronaut.context.annotation.Requires
 import io.micronaut.context.env.Environment
 import org.grails.datastore.gorm.neo4j.Neo4jDatastore
 import org.grails.datastore.gorm.neo4j.Neo4jDatastoreTransactionManager
-import org.neo4j.driver.v1.Driver
+import org.neo4j.driver.Driver
 
+import javax.inject.Named
 import javax.inject.Singleton
 import java.util.stream.Stream
 
@@ -72,7 +73,7 @@ class Neo4jDatastoreFactory {
     }
 
     @Singleton
-    @Bean
+    @Named("neo4j")
     Neo4jDatastoreTransactionManager neo4jDatastoreTransactionManager(Neo4jDatastore datastore) {
         return datastore.getTransactionManager()
     }

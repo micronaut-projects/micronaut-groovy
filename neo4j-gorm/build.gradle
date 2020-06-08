@@ -6,18 +6,25 @@ dependencies {
 
     compileOnly "io.micronaut:micronaut-inject-groovy"    
 
-    compile "io.micronaut.configuration:micronaut-neo4j-bolt:$micronautVersion"
-    compile "io.micronaut.configuration:micronaut-hibernate-validator:$micronautVersion"
+    implementation "io.micronaut:micronaut-spring:2.0.1"
+    implementation "io.micronaut.configuration:micronaut-neo4j-bolt:2.0.0"
+    implementation "io.micronaut.configuration:micronaut-hibernate-validator"
 
-    compile project(":gorm-common")
+    implementation project(":gorm-common")
     
-    compile project(":runtime-groovy")
-    compile "org.grails:grails-datastore-gorm-neo4j:6.1.5.RELEASE"
-    testCompile "io.micronaut:micronaut-inject-groovy"    
-    testCompile "io.micronaut:micronaut-http-server"    
-    testCompile "io.micronaut:micronaut-http-client"    
-    testRuntime("org.neo4j.test:neo4j-harness") {
+    implementation project(":runtime-groovy")
+    api "org.grails:grails-datastore-gorm-neo4j:$gormNeo4jVersion"
+    testImplementation "io.micronaut:micronaut-inject-groovy"    
+    testImplementation "io.micronaut:micronaut-http-server"    
+    testImplementation "io.micronaut:micronaut-http-client"    
+    testRuntimeOnly("org.neo4j.test:neo4j-harness") {
         exclude group: "io.netty", module: "netty-all"
     }
-    testRuntime 'io.netty:netty-transport-native-epoll:4.1.25.Final'
+    testRuntimeOnly 'io.netty:netty-transport-native-epoll:4.1.50.Final'
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "io.micronaut.configuration:micronaut-neo4j-bolt:2.0.0"
+    }
 }

@@ -1,11 +1,11 @@
 /*
- * Copyright 2017-2018 original authors
+ * Copyright 2017-2019 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,7 +18,9 @@ package io.micronaut.configuration.hibernate.gorm
 import grails.gorm.annotation.Entity
 import grails.gorm.services.Service
 import grails.gorm.transactions.TransactionService
+import io.micronaut.inject.qualifiers.Qualifiers
 import org.grails.datastore.mapping.validation.ValidationException
+import org.grails.orm.hibernate.GrailsHibernateTransactionManager
 import org.grails.orm.hibernate.cfg.Settings
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.DefaultApplicationContext
@@ -43,13 +45,45 @@ class GormConfigSpec extends Specification {
                                 'hibernate.cache.region.factory_class':'org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory'
     ]
 
+    void "verity PlatformTransactionManager is qualified with name hibernate"() {
+        given:
+        ApplicationContext applicationContext = ApplicationContext.build(applicationContextConfig)
+                .mainClass(GormConfigSpec)
+                .start()
+
+        expect:
+        applicationContext.containsBean(PlatformTransactionManager)
+
+        and:
+        applicationContext.containsBean(PlatformTransactionManager, Qualifiers.byName("hibernate"))
+
+        and: 'two beans: one created by the factory and the MockPlatformTransactionManager'
+        applicationContext.getBeansOfType(PlatformTransactionManager).size() == 2
+
+        when:
+        PlatformTransactionManager platformTransactionManager = applicationContext.getBean(PlatformTransactionManager)
+        
+        then: 'GrailsHibernateTransactionManager because the factory annotates with @Primary'
+        noExceptionThrown()
+
+        and:
+        platformTransactionManager instanceof GrailsHibernateTransactionManager
+
+        cleanup:
+        applicationContext.close()
+    }
+
+    private Map<String, Object> getApplicationContextConfig() {
+        [
+                (Settings.SETTING_DB_CREATE):'create-drop',
+                'dataSource.url':'jdbc:h2:mem:someOtherDb',
+                'dataSource.properties.initialSize':25
+        ] + sharedConfig
+    }
+
     void "test beans for custom data source"() {
         given:
-        ApplicationContext applicationContext = ApplicationContext.build(
-                [(Settings.SETTING_DB_CREATE):'create-drop',
-                 'dataSource.url':'jdbc:h2:mem:someOtherDb',
-                 'dataSource.properties.initialSize':25] + sharedConfig
-                )
+        ApplicationContext applicationContext = ApplicationContext.build(applicationContextConfig)
                 .mainClass(GormConfigSpec)
                 .start()
 

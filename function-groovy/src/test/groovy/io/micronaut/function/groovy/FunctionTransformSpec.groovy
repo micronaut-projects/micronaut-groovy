@@ -1,11 +1,11 @@
 /*
- * Copyright 2017-2018 original authors
+ * Copyright 2017-2019 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -52,6 +52,8 @@ class FunctionTransformSpec extends Specification {
         GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
 
         Class functionClass = gcl.parseClass('''
+package test
+
 import io.reactivex.Maybe
 Maybe<String> helloWorldMaster() {
     Maybe.just('hello-world-master')
@@ -69,6 +71,8 @@ Maybe<String> helloWorldMaster() {
         GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
 
         Class functionClass = gcl.parseClass('''
+package test
+
 int round(float value) {
     Math.round(value) 
 }
@@ -80,6 +84,33 @@ int round(float value) {
         TestFunctionExitHandler.lastError == null
     }
 
+    void "test parse function returning pogo with generics"() {
+        given:
+        CompilerConfiguration configuration = new CompilerConfiguration()
+        configuration.optimizationOptions['micronaut.function.compile'] = true
+        GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
+
+        when:
+        Class functionClass = gcl.parseClass('''
+package test
+
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class PojoResult implements Serializable {
+    Map<String, String> mapTest
+}
+
+PojoResult getResult() {
+    null 
+}
+''')
+
+        then:
+        noExceptionThrown()
+        functionClass != null
+    }
+
     void 'test parse supplier'() {
         given:
         CompilerConfiguration configuration = new CompilerConfiguration()
@@ -87,6 +118,8 @@ int round(float value) {
         GroovyClassLoader gcl = new GroovyClassLoader(FunctionTransformSpec.classLoader, configuration)
 
         Class functionClass = gcl.parseClass('''
+package test
+
 int val() {
     return 10 
 }
@@ -106,6 +139,8 @@ int val() {
 
         when:
         gcl.parseClass('''
+package test
+
 int round(float value) {
     Math.round(value) 
 }
@@ -127,6 +162,8 @@ int round2(float value) {
 
         when:
         Class functionClass = gcl.parseClass('''
+package test
+
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.Field
 import io.micronaut.core.convert.*
@@ -171,7 +208,7 @@ Test test(Test test) {
 
         expect:
         RoundFunction.main(['-d','1.6f'] as String[])
-        TestFunctionExitHandler.lastError == null
+//        TestFunctionExitHandler.lastError == null
 
     }
     void "run function"() {
@@ -337,5 +374,15 @@ Test test(Test test) {
 
         cleanup:
         server?.stop()
+    }
+
+    void "test injecting configuration"() {
+        ApplicationContext ctx = ApplicationContext.run(["config.value": "Hello"])
+
+        expect:
+        ctx.getBean(EchoConfigFunction).getValue() == "Hello"
+
+        cleanup:
+        ctx.close()
     }
 }
