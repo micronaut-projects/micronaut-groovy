@@ -4,13 +4,13 @@ The table summarizes the GORM modules and the dependencies you should add to you
 |===
 |Dependency|Description
 
-|`io.micronaut.configuration:micronaut-hibernate-gorm`
+|`io.micronaut.groovy:micronaut-hibernate-gorm`
 |Configures http://gorm.grails.org/latest/hibernate/manual[GORM for Hibernate] for Groovy applications
 
-|`io.micronaut.configuration:micronaut-mongo-gorm`
+|`io.micronaut.groovy:micronaut-mongo-gorm`
 |Configures http://gorm.grails.org/latest/mongodb/manual[GORM for MongoDB] for Groovy applications
 
-|`io.micronaut.configuration:micronaut-neo4j-gorm`
+|`io.micronaut.groovy:micronaut-neo4j-gorm`
 |Configures http://gorm.grails.org/latest/neo4j/manual[GORM for Neo4j] for Groovy applications
 
 |===
@@ -30,7 +30,7 @@ For Groovy users and users familiar with the Grails framework, special support f
 
 Rather, you only need to include the  `hibernate-gorm` dependency in your project, a connection pool implementation, and the desired JDBC driver. For example:
 
-dependency:micronaut-hibernate-gorm[groupId="io.micronaut.configuration"]
+dependency:micronaut-hibernate-gorm[groupId="io.micronaut.groovy"]
 
 You will likely want to add a connection pool implementation and potentially the `h2` database for in-memory testing:
 
@@ -151,7 +151,7 @@ For Groovy users and users familiar with Grails, special support has been added 
 
 To add support for GORM for MongoDB, first configure the MongoDB connection as per instructions earlier in the guide, then add the following dependency to your application:
 
-dependency:micronaut-mongo-gorm[groupId="io.micronaut.configuration"]
+dependency:micronaut-mongo-gorm[groupId="io.micronaut.groovy"]
 
 WARNING: For GORM for MongoDB you will need to configure the database name separately as the `grails.mongodb.datataseName` property in `application.yml`.
 
@@ -176,7 +176,7 @@ For Groovy users and users familiar with Grails, special support has been added 
 
 To add support for GORM for Neo4j, first configure the Neo4j connection as per instructions earlier in the guide, then add the following dependency to your application:
 
-dependency:micronaut-neo4j-gorm[groupId="io.micronaut.configuration"]
+dependency:micronaut-neo4j-gorm[groupId="io.micronaut.groovy"]
 
 The following should be noted regarding using GORM for Neo4j in Micronaut:
 

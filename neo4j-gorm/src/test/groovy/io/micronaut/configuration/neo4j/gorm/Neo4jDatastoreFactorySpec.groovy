@@ -18,11 +18,10 @@ package io.micronaut.configuration.neo4j.gorm
 import grails.gorm.annotation.Entity
 import grails.gorm.transactions.Rollback
 import io.micronaut.inject.qualifiers.Qualifiers
+import io.micronaut.neo4j.bolt.Neo4jBoltSettings
 import org.grails.datastore.gorm.neo4j.Neo4jDatastoreTransactionManager
 import org.grails.datastore.mapping.validation.ValidationException
-import io.micronaut.configuration.neo4j.bolt.Neo4jBoltSettings
 import io.micronaut.context.ApplicationContext
-import org.springframework.transaction.PlatformTransactionManager
 import spock.lang.AutoCleanup
 import spock.lang.Requires
 import spock.lang.Shared

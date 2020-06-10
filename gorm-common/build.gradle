@@ -6,7 +6,7 @@ dependencies {
 
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation "io.micronaut:micronaut-inject:$micronautVersion"    
-    implementation "io.micronaut:micronaut-spring:2.0.1"
+    implementation "io.micronaut.spring:micronaut-spring:2.1.0.RC2"
 
     api "org.grails:grails-datastore-gorm:$gormVersion"
 }
