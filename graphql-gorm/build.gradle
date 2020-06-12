@@ -1,5 +1,3 @@
-group "io.micronaut.graphql"
-
 dependencies {
     compileOnly "io.micronaut:micronaut-inject-groovy"
 
