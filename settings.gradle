@@ -1,5 +1,6 @@
 rootProject.name = 'groovy'
 
+include 'groovy-bom'
 include 'function-groovy'
 include 'gorm-common'
 include 'hibernate-gorm'

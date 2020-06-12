@@ -1,0 +1,15 @@
+javaPlatform {
+    allowDependencies()
+}
+dependencies {
+    api platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
+
+    constraints {
+        for (Project p : rootProject.subprojects) {
+            if (p.name == "groovy-bom") continue
+            
+            api "$p.group:micronaut-$p.name:$p.version"
+        }
+
+    }
+}

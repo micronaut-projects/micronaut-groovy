@@ -13,21 +13,33 @@ buildscript {
 subprojects { Project subproject ->
     group "io.micronaut.groovy"
 
-    apply plugin: "io.micronaut.build.common"
-    apply plugin: "io.micronaut.build.dependency-updates"
-    apply plugin: "io.micronaut.build.publishing"
-
     repositories {
         maven { url "https://repo.grails.org/grails/core" }
     }
 
-    dependencies {
-        documentation ("com.github.javaparser:javaparser-core:3.16.1")
-        testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
-        testImplementation("org.spockframework:spock-core:${spockVersion}") {
-            exclude module:'groovy-all'
+    if (subproject.name != 'groovy-bom') {
+        apply plugin: "io.micronaut.build.common"
+
+    } else {
+        apply plugin: "java-platform"
+        version projectVersion
+    }
+
+    
+    apply plugin: "io.micronaut.build.publishing"
+
+
+    apply plugin: "io.micronaut.build.dependency-updates"   
+
+    if (subproject.name != 'groovy-bom') {
+        dependencies {
+            documentation ("com.github.javaparser:javaparser-core:3.16.1")
+            testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
+            testImplementation("org.spockframework:spock-core:${spockVersion}") {
+                exclude module:'groovy-all'
+            }
+            testImplementation "io.micronaut.test:micronaut-test-spock:$micronautTestVersion"
         }
-        testImplementation "io.micronaut.test:micronaut-test-spock:$micronautTestVersion"
     }
 
     tasks.withType(Test) {
