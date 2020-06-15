@@ -3,7 +3,7 @@ dependencies {
     annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
 
     compileOnly "io.micronaut:micronaut-inject-groovy"    
-    implementation "io.micronaut.spring:micronaut-spring:2.1.0.RC2"
+    implementation "io.micronaut.spring:micronaut-spring:2.1.0.RC3"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation project(":gorm-common")
     implementation "io.micronaut.mongodb:micronaut-mongo-sync:2.1.0"
