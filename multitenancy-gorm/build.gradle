@@ -8,12 +8,12 @@ dependencies {
     implementation "io.micronaut:micronaut-multitenancy:$micronautVersion"        
     api "org.grails:grails-datastore-core:$gormVersion"
 
-    testImplementation "io.micronaut:micronaut-http-server"    
-    testImplementation "io.micronaut:micronaut-http-client"    
+    testImplementation "io.micronaut:micronaut-http-server:$micronautVersion"    
+    testImplementation "io.micronaut:micronaut-http-client:$micronautVersion"    
 
     testImplementation "io.micronaut:micronaut-security-jwt"    
     
-    testImplementation "io.micronaut:micronaut-inject-groovy"    
+    testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"    
     testImplementation project(":hibernate-gorm")
 
     testRuntimeOnly "org.apache.tomcat:tomcat-jdbc"

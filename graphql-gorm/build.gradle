@@ -1,5 +1,9 @@
+
+repositories {
+    maven { url "https://repo.grails.org/grails/core" }
+}
 dependencies {
-    compileOnly "io.micronaut:micronaut-inject-groovy"
+    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 
     api "org.grails:grails-datastore-gorm:$gormVersion"
     api "com.graphql-java:graphql-java:14.0"
