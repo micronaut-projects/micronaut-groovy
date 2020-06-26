@@ -100,7 +100,7 @@
         <h1>Micronaut Groovy</h1>
         <p></p>
         <p>Projects that enhance the Micronaut and Groovy language experience</p>
-        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option value='https://micronaut-projects.github.io/micronaut-groovy/snapshot/guide/index.html'>2.0.0.M1</option><option selected='selected' value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0.M1/guide/index.html'>2.0.0.M1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.3/guide/index.html'>1.1.3</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.2/guide/index.html'>1.1.2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.1/guide/index.html'>1.1.1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0/guide/index.html'>1.1.0</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0.RC2/guide/index.html'>1.1.0.RC2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0.RC1/guide/index.html'>1.1.0.RC1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.0.4/guide/index.html'>1.0.4</option></select></p>
+        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option value='https://micronaut-projects.github.io/micronaut-groovy/snapshot/guide/index.html'>SNAPSHOT</option><option selected='selected' value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0/guide/index.html'>2.0.0</option><option value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0.RC1/guide/index.html'>2.0.0.RC1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0.M4/guide/index.html'>2.0.0.M4</option><option value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0.M3/guide/index.html'>2.0.0.M3</option><option value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0.M2/guide/index.html'>2.0.0.M2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/2.0.0.M1/guide/index.html'>2.0.0.M1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.3/guide/index.html'>1.1.3</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.2/guide/index.html'>1.1.2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.1/guide/index.html'>1.1.1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0/guide/index.html'>1.1.0</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0.RC2/guide/index.html'>1.1.0.RC2</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.1.0.RC1/guide/index.html'>1.1.0.RC1</option><option value='https://micronaut-projects.github.io/micronaut-groovy/1.0.4/guide/index.html'>1.0.4</option></select></p>
     </div>
     
 <h1 id="introduction"><a class="anchor" href="#introduction"></a>1 Introduction</h1>
@@ -135,13 +135,13 @@
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut:micronaut-runtime-groovy")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.groovy:micronaut-runtime-groovy")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
-    &lt;groupId&gt;io.micronaut&lt;/groupId&gt;
+    &lt;groupId&gt;io.micronaut.groovy&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-runtime-groovy&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -183,13 +183,13 @@ If you have the Micronaut CLI installed you can quickly create a Groovy function
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut:micronaut-function-groovy")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.groovy:micronaut-function-groovy")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
-    &lt;groupId&gt;io.micronaut&lt;/groupId&gt;
+    &lt;groupId&gt;io.micronaut.groovy&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-function-groovy&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -269,15 +269,15 @@ String hello(String name) {
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io.micronaut.configuration:micronaut-hibernate-gorm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io.micronaut.groovy:micronaut-hibernate-gorm</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Configures <a href="http://gorm.grails.org/latest/hibernate/manual">GORM for Hibernate</a> for Groovy applications</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io.micronaut.configuration:micronaut-mongo-gorm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io.micronaut.groovy:micronaut-mongo-gorm</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Configures <a href="http://gorm.grails.org/latest/mongodb/manual">GORM for MongoDB</a> for Groovy applications</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io.micronaut.configuration:micronaut-neo4j-gorm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io.micronaut.groovy:micronaut-neo4j-gorm</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Configures <a href="http://gorm.grails.org/latest/neo4j/manual">GORM for Neo4j</a> for Groovy applications</p></td>
 </tr>
 </tbody>
@@ -315,13 +315,13 @@ String hello(String name) {
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.configuration:micronaut-hibernate-gorm")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.groovy:micronaut-hibernate-gorm")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
-    &lt;groupId&gt;io.micronaut.configuration&lt;/groupId&gt;
+    &lt;groupId&gt;io.micronaut.groovy&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-hibernate-gorm&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -484,13 +484,13 @@ class MicronautTestBookServiceSpec extends Specification {
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.configuration:micronaut-mongo-gorm")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.groovy:micronaut-mongo-gorm")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
-    &lt;groupId&gt;io.micronaut.configuration&lt;/groupId&gt;
+    &lt;groupId&gt;io.micronaut.groovy&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-mongo-gorm&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -560,13 +560,13 @@ For GORM for MongoDB you will need to configure the database name separately as 
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.configuration:micronaut-neo4j-gorm")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.groovy:micronaut-neo4j-gorm")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
-    &lt;groupId&gt;io.micronaut.configuration&lt;/groupId&gt;
+    &lt;groupId&gt;io.micronaut.groovy&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-neo4j-gorm&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
