@@ -6,7 +6,7 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "io.micronaut.build:micronaut-gradle-plugins:2.0.5"
+        classpath "io.micronaut.build:micronaut-gradle-plugins:2.0.6"
     }
 }
 
@@ -42,11 +42,6 @@ subprojects { Project subproject ->
             testImplementation "io.micronaut.test:micronaut-test-spock:$micronautTestVersion"
         }
     }
-
-    tasks.withType(Test) {
-        useJUnitPlatform()
-    }
-
 }
 
 apply plugin: "io.micronaut.build.docs"
