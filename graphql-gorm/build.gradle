@@ -6,7 +6,13 @@ dependencies {
     compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 
     api "org.grails:grails-datastore-gorm:$gormVersion"
-    api "com.graphql-java:graphql-java:14.1"
+    api "com.graphql-java:graphql-java:$graphqlJavaVersion"
     api "org.grails:gorm-graphql:2.0.0"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
+}
+
+micronautBuild {
+    resolutionStrategy {
+        force "com.graphql-java:graphql-java:$graphqlJavaVersion"
+    }
 }
