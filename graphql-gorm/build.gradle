@@ -6,7 +6,7 @@ dependencies {
     compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 
     api "org.grails:grails-datastore-gorm:$gormVersion"
-    api "com.graphql-java:graphql-java:2020-07-03T00-47-06-d3032e7"
+    api "com.graphql-java:graphql-java:2020-09-08T04-56-12-5c5798e"
     api "org.grails:gorm-graphql:2.0.0"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
 }
