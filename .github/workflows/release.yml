@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
       - uses: gradle/wrapper-validation-action@v1
       - name: Set up JDK
         uses: actions/setup-java@v1
@@ -27,10 +29,11 @@ jobs:
           MICRONAUT_BUILD_EMAIL: ${{ secrets.MICRONAUT_BUILD_EMAIL }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish to Bintray
+      - name: Upload to Bintray
         env:
           BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
           BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
+          BINTRAY_PUBLISH: ${{ secrets.BINTRAY_PUBLISH }}
         run: ./gradlew bintrayUpload docs
       - name: Export Gradle Properties
         uses: micronaut-projects/github-actions/export-gradle-properties@master
