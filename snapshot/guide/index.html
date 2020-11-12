@@ -45,15 +45,13 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#config"><strong>2</strong><span>Groovy Configuration</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#config"><strong>3</strong><span>Groovy Configuration</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#functions"><strong>3</strong><span>Groovy Functions</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#functions"><strong>4</strong><span>Groovy Functions</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#gorm"><strong>4</strong><span>GORM Modules</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#gorm"><strong>5</strong><span>GORM Modules</span></a></div>
-                                
-                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>6</strong><span>Repository</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
                                 
                             </div>
                         </div>
@@ -86,17 +84,13 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-introduction"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-releaseHistory"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-config"><a href="#config"><strong>2</strong><span>Groovy Configuration</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-config"><a href="#config"><strong>3</strong><span>Groovy Configuration</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-functions"><a href="#functions"><strong>3</strong><span>Groovy Functions</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-functions"><a href="#functions"><strong>4</strong><span>Groovy Functions</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-gorm"><a href="#gorm"><strong>4</strong><span>GORM Modules</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-gorm"><a href="#gorm"><strong>5</strong><span>GORM Modules</span></a></div>
-        
-        <div class="toc-item" style="margin-left:10px" id="toc-item-multitenancyGorm"><a href="#multitenancyGorm"><strong>5.1</strong><span>Multi-tenancy GORM</span></a></div>
-        
-        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>6</strong><span>Repository</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
         
         </div>
     </div>
@@ -112,7 +106,7 @@
 <h1 id="introduction"><a class="anchor" href="#introduction"></a>1 Introduction</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/introduction.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/2.0.x/src/main/docs/guide/introduction.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -122,26 +116,10 @@
 <p>This project includes various subprojects that improve the Micronaut experience for Groovy users.</p>
 </div>
 
-<h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>2 Release History</h1>
+<h1 id="config"><a class="anchor" href="#config"></a>2 Groovy Configuration</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/releaseHistory.adoc"'>
-        <i class='fa fa-pencil-square-o'></i> Improve this doc
-    </button>
-</div>
-
-
-<div class="paragraph">
-<p>For this project, you can find a list of releases (with release notes) here:</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/micronaut-projects/micronaut-groovy/releases">https://github.com/micronaut-projects/micronaut-groovy/releases</a></p>
-</div>
-
-<h1 id="config"><a class="anchor" href="#config"></a>3 Groovy Configuration</h1>
-
-<div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/config.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/2.0.x/src/main/docs/guide/config.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -174,10 +152,10 @@
 <p>You can then define configuration Groovy config in <code>src/main/resources/application.groovy</code> in <a href="http://docs.groovy-lang.org/latest/html/gapi/groovy/util/ConfigSlurper.html">ConfigSlurper</a> format.</p>
 </div>
 
-<h1 id="functions"><a class="anchor" href="#functions"></a>4 Groovy Functions</h1>
+<h1 id="functions"><a class="anchor" href="#functions"></a>3 Groovy Functions</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/functions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/2.0.x/src/main/docs/guide/functions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -265,10 +243,10 @@ String hello(String name) {
 </div>
 </div>
 
-<h1 id="gorm"><a class="anchor" href="#gorm"></a>5 GORM Modules</h1>
+<h1 id="gorm"><a class="anchor" href="#gorm"></a>4 GORM Modules</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/gorm.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/2.0.x/src/main/docs/guide/gorm.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -614,115 +592,10 @@ For GORM for MongoDB you will need to configure the database name separately as 
 </div>
 </div>
 
-<h2 id="multitenancyGorm"><a class="anchor" href="#multitenancyGorm"></a>5.1 Multi-tenancy GORM</h2>
+<h1 id="repository"><a class="anchor" href="#repository"></a>5 Repository</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/gorm/multitenancyGorm.adoc"'>
-        <i class='fa fa-pencil-square-o'></i> Improve this doc
-    </button>
-</div>
-
-
-<div class="paragraph">
-<p><a href="http://gorm.grails.org">GORM</a> supports Multi-tenancy and integrates with <a href="https://docs.micronaut.io/latest/guide/index.html#multitenancy">Micronaut Multi-tenancy</a> support.</p>
-</div>
-<div class="paragraph">
-<p>To use Micronaut and GORM multitenancy capabilities you must have the <code>multitenancy-gorm</code> dependency on your classpath. For example in <code>build.gradle</code>:</p>
-</div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">compile "io.micronaut.configuration:micronaut-multitenancy-gorm"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>GORM is a powerful Groovy-based data access toolkit for the JVM with implementations several data access technologies (Hibernate, Neo4j, MongoDB, GraphQL &#8230;&#8203;).</p>
-</div>
-<div class="paragraph">
-<p>GORM supports the following different multitenancy modes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>DATABASE</code> - A separate database with a separate connection pool is used to store each tenants data.</p>
-</li>
-<li>
-<p><code>SCHEMA</code> - The same database, but different schemas are used to store each tenants data.</p>
-</li>
-<li>
-<p><code>DISCRIMINATOR</code> - The same database is used with a discriminator used to partition and isolate data.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In order to use GORM - Multitenancy you will need to configure the following properties: <code>grails.gorm.multiTenancy.mode</code> and <code>grails.gorm.multiTenancy.tenantResolverClass</code>.</p>
-</div>
-<div class="paragraph">
-<p>Micronaut support for Multi-tenancy integrates with GORM.</p>
-</div>
-<div class="paragraph">
-<p>The following table contains all of the <code>TenantResolver implementations that ship with `multitenancy-gorm</code> module and are usable out of the box.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/CookieTenantResolver.html">CookieTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from an HTTP cookie.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/FixedTenantResolver.html">FixedTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves against a fixed tenant id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/HttpHeaderTenantResolver.html">HttpHeaderTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from the request HTTP Header.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/PrincipalTenantResolver.html">PrincipalTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from the authenticated username.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/SessionTenantResolver.html">SessionTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from the HTTP session.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/SubdomainTenantResolver.html">SubdomainTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the tenant id from the subdomain.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/gorm/SystemPropertyTenantResolver.html">SystemPropertyTenantResolver</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the tenant id from a system property.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>You will need to add something like the following snippet to your app configuration:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">grails:
-    gorm:
-        multiTenancy:
-            mode: DISCRIMINATOR
-            tenantResolverClass: 'io.micronaut.multitenancy.gorm.PrincipalTenantResolver'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Please, read <a href="http://gorm.grails.org/latest/hibernate/manual/index.html#multiTenancy">GORM Multi-tenancy documentation</a> to learn more.</p>
-</div>
-
-<h1 id="repository"><a class="anchor" href="#repository"></a>6 Repository</h1>
-
-<div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/master/src/main/docs/guide/repository.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-groovy/edit/2.0.x/src/main/docs/guide/repository.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
