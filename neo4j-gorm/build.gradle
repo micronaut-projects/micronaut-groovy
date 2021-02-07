@@ -5,9 +5,9 @@ dependencies {
 
     compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"    
 
-    implementation "io.micronaut.spring:micronaut-spring:2.1.1"
-    implementation "io.micronaut.neo4j:micronaut-neo4j-bolt:4.0.1"
-    implementation "io.micronaut.beanvalidation:micronaut-hibernate-validator:2.0.1"
+    implementation "io.micronaut.spring:micronaut-spring:3.1.0"
+    implementation "io.micronaut.neo4j:micronaut-neo4j-bolt:4.2.0"
+    implementation "io.micronaut.beanvalidation:micronaut-hibernate-validator:3.0.0"
 
     implementation project(":gorm-common")
     

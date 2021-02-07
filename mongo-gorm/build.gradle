@@ -3,11 +3,11 @@ dependencies {
     annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"      
 
     compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"    
-    implementation "io.micronaut.spring:micronaut-spring:2.1.1"
+    implementation "io.micronaut.spring:micronaut-spring:3.1.0"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation project(":gorm-common")
     implementation "io.micronaut.mongodb:micronaut-mongo-sync:3.1.0"
-    implementation "io.micronaut.beanvalidation:micronaut-hibernate-validator:2.0.1"
+    implementation "io.micronaut.beanvalidation:micronaut-hibernate-validator:3.0.0"
     api "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
     implementation "org.mongodb:mongodb-driver-sync:$mongoVersion"
 
