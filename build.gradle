@@ -34,7 +34,7 @@ subprojects { Project subproject ->
 
     if (subproject.name != 'groovy-bom') {
         dependencies {
-            documentation ("com.github.javaparser:javaparser-core:3.17.0")
+            documentation ("com.github.javaparser:javaparser-core:3.18.0")
             testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
             testImplementation("org.spockframework:spock-core:${spockVersion}") {
                 exclude module:'groovy-all'
