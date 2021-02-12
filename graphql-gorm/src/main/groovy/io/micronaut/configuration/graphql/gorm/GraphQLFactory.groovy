@@ -16,7 +16,9 @@
 package io.micronaut.configuration.graphql.gorm
 
 import graphql.GraphQL
+import graphql.schema.GraphQLCodeRegistry
 import graphql.schema.GraphQLSchema
+import groovy.transform.CompileStatic
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires
 import io.micronaut.core.bind.BeanPropertyBinder
@@ -55,9 +57,15 @@ import javax.inject.Singleton
  * @author James Kleeh
  * @since 1.1.0
  */
+@CompileStatic
 @Factory
 @Requires(property = "graphql.enabled", notEquals = StringUtils.FALSE)
 class GraphQLFactory {
+
+    @Singleton
+    GraphQLCodeRegistry.Builder codeRegistry() {
+        GraphQLCodeRegistry.newCodeRegistry()
+    }
 
     @Singleton
     GraphQLEntityNamingConvention namingConvention() {
@@ -95,11 +103,12 @@ class GraphQLFactory {
     }
 
     @Singleton
-    GraphQLTypeManager typeManager(GraphQLEntityNamingConvention namingConvention,
+    GraphQLTypeManager typeManager(GraphQLCodeRegistry.Builder codeRegistry,
+                                   GraphQLEntityNamingConvention namingConvention,
                                    GraphQLErrorsResponseHandler errorsResponseHandler,
                                    GraphQLDomainPropertyManager domainPropertyManager,
                                    GraphQLPaginationResponseHandler paginationResponseHandler) {
-        new DefaultGraphQLTypeManager(namingConvention, errorsResponseHandler, domainPropertyManager, paginationResponseHandler)
+        new DefaultGraphQLTypeManager(codeRegistry, namingConvention, errorsResponseHandler, domainPropertyManager, paginationResponseHandler)
     }
 
     @Singleton
@@ -113,8 +122,8 @@ class GraphQLFactory {
     }
 
     @Singleton
-    GraphQLErrorsResponseHandler errorsResponseHandler(@Nullable MessageSource messageSource) {
-        new DefaultGraphQLErrorsResponseHandler(messageSource ?: new StaticMessageSource())
+    GraphQLErrorsResponseHandler errorsResponseHandler(@Nullable MessageSource messageSource, GraphQLCodeRegistry.Builder codeRegistry) {
+        new DefaultGraphQLErrorsResponseHandler(messageSource ?: new StaticMessageSource(), codeRegistry)
     }
 
     @Singleton

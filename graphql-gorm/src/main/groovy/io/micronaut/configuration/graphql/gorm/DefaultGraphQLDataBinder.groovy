@@ -15,6 +15,7 @@
  */
 package io.micronaut.configuration.graphql.gorm
 
+import groovy.transform.CompileStatic
 import io.micronaut.core.bind.BeanPropertyBinder
 import org.grails.gorm.graphql.binding.GraphQLDataBinder
 
@@ -24,6 +25,7 @@ import org.grails.gorm.graphql.binding.GraphQLDataBinder
  * @author James Kleeh
  * @since 1.1.0
  */
+@CompileStatic
 class DefaultGraphQLDataBinder implements GraphQLDataBinder {
 
     private final BeanPropertyBinder beanPropertyBinder
