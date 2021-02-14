@@ -25,13 +25,12 @@ import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Primary
+import io.micronaut.inject.qualifiers.Qualifiers
 import org.grails.orm.hibernate.HibernateDatastore
 import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
 import org.springframework.transaction.PlatformTransactionManager
 
-import javax.inject.Named
-import javax.inject.Singleton
 import javax.sql.DataSource
 import java.util.stream.Stream
 
@@ -63,33 +62,20 @@ class HibernateDatastoreFactory {
             new ConfigurableEventPublisherAdapter(applicationContext),
             classes
         )
+        SessionFactory sessionFactory = datastore.sessionFactory
+        DataSource dataSource = ((HibernateConnectionSource) datastore.getConnectionSources().defaultConnectionSource).getDataSource()
+        PlatformTransactionManager platformTransactionManager = datastore.getTransactionManager()
+        applicationContext.registerSingleton(SessionFactory, sessionFactory)
+        applicationContext.registerSingleton(DataSource, dataSource)
+        applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byName("hibernate"))
+        applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byStereotype(Primary))
+        for (o in datastore.getServices()) {
+            applicationContext.registerSingleton(o, false)
+        }
+        for (o in datastore.getServices()) {
+            applicationContext.inject(o)
+        }
         return datastore
     }
 
-    @Singleton
-    SessionFactory sessionFactory(HibernateDatastore hibernateDatastore) {
-        hibernateDatastore.getSessionFactory()
-    }
-
-    @Singleton
-    DataSource dataSource(HibernateDatastore hibernateDatastore) {
-        ((HibernateConnectionSource) hibernateDatastore.getConnectionSources().defaultConnectionSource).getDataSource()
-    }
-
-    @Primary
-    @Named("hibernate")
-    @Singleton
-    PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
-        hibernateDatastore.getTransactionManager()
-    }
-
-    @Singleton
-    void setupServices(HibernateDatastore hibernateDatastore, SessionFactory sessionFactory, DataSource dataSource, PlatformTransactionManager platformTransactionManager) {
-        for (o in hibernateDatastore.getServices()) {
-            applicationContext.registerSingleton(o, false)
-        }
-        for (o in hibernateDatastore.getServices()) {
-            applicationContext.inject(o)
-        }
-    }
 }

@@ -18,6 +18,7 @@ package io.micronaut.configuration.hibernate.gorm
 import grails.gorm.annotation.Entity
 import grails.gorm.services.Service
 import grails.gorm.transactions.TransactionService
+import io.micronaut.context.annotation.Primary
 import io.micronaut.inject.qualifiers.Qualifiers
 import org.grails.datastore.mapping.validation.ValidationException
 import org.grails.orm.hibernate.GrailsHibernateTransactionManager
@@ -31,6 +32,7 @@ import spock.lang.Shared
 import spock.lang.Specification
 
 import javax.annotation.PostConstruct
+import javax.inject.Inject
 import javax.inject.Singleton
 import javax.sql.DataSource
 
@@ -56,6 +58,9 @@ class GormConfigSpec extends Specification {
 
         and:
         applicationContext.containsBean(PlatformTransactionManager, Qualifiers.byName("hibernate"))
+
+        and:
+        applicationContext.containsBean(PlatformTransactionManager, Qualifiers.byStereotype(Primary))
 
         and: 'two beans: one created by the factory and the MockPlatformTransactionManager'
         applicationContext.getBeansOfType(PlatformTransactionManager).size() == 2
@@ -209,6 +214,8 @@ class Book {
 @Service(Book)
 @Singleton
 abstract class BookService {
+
+    @Inject DataSource dataSource
 
     @Value('${data-source.db-create}')
     String dbCreate
