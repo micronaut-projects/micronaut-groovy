@@ -26,6 +26,7 @@ import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Primary
 import io.micronaut.inject.qualifiers.Qualifiers
+import org.grails.datastore.mapping.services.Service
 import org.grails.orm.hibernate.HibernateDatastore
 import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
@@ -69,12 +70,19 @@ class HibernateDatastoreFactory {
         applicationContext.registerSingleton(DataSource, dataSource)
         applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byName("hibernate"))
         applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byStereotype(Primary))
-        for (o in datastore.getServices()) {
-            applicationContext.registerSingleton(o, false)
+
+        Collection<Collection<Service>> gormServices = datastore.getServices().split {
+            !it.class.isAnnotationPresent(grails.gorm.services.Service)
         }
-        for (o in datastore.getServices()) {
-            applicationContext.inject(o)
+        for(services in gormServices) {
+            for (o in services) {
+                applicationContext.registerSingleton(o, false)
+            }
+            for (o in services) {
+                applicationContext.inject(o)
+            }
         }
+
         return datastore
     }
 

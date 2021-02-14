@@ -216,6 +216,7 @@ class Book {
 abstract class BookService {
 
     @Inject DataSource dataSource
+    @Inject TransactionService transactionService
 
     @Value('${data-source.db-create}')
     String dbCreate
