@@ -63,13 +63,6 @@ class HibernateDatastoreFactory {
             new ConfigurableEventPublisherAdapter(applicationContext),
             classes
         )
-        for (o in datastore.getServices()) {
-            applicationContext.registerSingleton(o, false)
-        }
-        for (o in datastore.getServices()) {
-            applicationContext.inject(o)
-        }
-
         return datastore
     }
 
@@ -88,5 +81,15 @@ class HibernateDatastoreFactory {
     @Singleton
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getTransactionManager()
+    }
+
+    @Singleton
+    void setupServices(HibernateDatastore hibernateDatastore, SessionFactory sessionFactory, DataSource dataSource, PlatformTransactionManager platformTransactionManager) {
+        for (o in hibernateDatastore.getServices()) {
+            applicationContext.registerSingleton(o, false)
+        }
+        for (o in hibernateDatastore.getServices()) {
+            applicationContext.inject(o)
+        }
     }
 }
