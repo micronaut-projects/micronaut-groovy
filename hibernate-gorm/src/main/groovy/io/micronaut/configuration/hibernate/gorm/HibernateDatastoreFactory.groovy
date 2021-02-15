@@ -32,6 +32,8 @@ import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
 import org.springframework.transaction.PlatformTransactionManager
 
+import javax.inject.Named
+import javax.inject.Singleton
 import javax.sql.DataSource
 import java.util.stream.Stream
 
@@ -85,5 +87,23 @@ class HibernateDatastoreFactory {
 
         return datastore
     }
+
+    @Singleton
+    SessionFactory sessionFactory(HibernateDatastore hibernateDatastore) {
+        hibernateDatastore.getSessionFactory()
+    }
+
+    @Singleton
+    DataSource dataSource(HibernateDatastore hibernateDatastore) {
+        ((HibernateConnectionSource) hibernateDatastore.getConnectionSources().defaultConnectionSource).getDataSource()
+    }
+
+    @Primary
+    @Named("hibernate")
+    @Singleton
+    PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
+        hibernateDatastore.getTransactionManager()
+    }
+
 
 }
