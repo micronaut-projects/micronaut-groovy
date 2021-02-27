@@ -128,6 +128,7 @@ class GraphQLFactory {
 
     @Singleton
     Schema schema(Datastore[] datastores,
+                  GraphQLCodeRegistry.Builder codeRegistry,
                   GraphQLDeleteResponseHandler deleteResponseHandler,
                   GraphQLEntityNamingConvention entityNamingConvention,
                   GraphQLTypeManager typeManager,
@@ -144,6 +145,7 @@ class GraphQLFactory {
         }
 
         Schema schema = new Schema(mappingContexts)
+        schema.codeRegistry = codeRegistry
         schema.deleteResponseHandler = deleteResponseHandler
         schema.namingConvention = entityNamingConvention
         schema.typeManager = typeManager
