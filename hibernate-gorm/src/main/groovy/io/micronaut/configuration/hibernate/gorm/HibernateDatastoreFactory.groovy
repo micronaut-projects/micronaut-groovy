@@ -25,6 +25,8 @@ import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Primary
+import io.micronaut.inject.qualifiers.Qualifiers
+import org.grails.datastore.mapping.services.Service
 import org.grails.orm.hibernate.HibernateDatastore
 import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
@@ -63,11 +65,24 @@ class HibernateDatastoreFactory {
             new ConfigurableEventPublisherAdapter(applicationContext),
             classes
         )
-        for (o in datastore.getServices()) {
-            applicationContext.registerSingleton(o, false)
+        SessionFactory sessionFactory = datastore.sessionFactory
+        DataSource dataSource = ((HibernateConnectionSource) datastore.getConnectionSources().defaultConnectionSource).getDataSource()
+        PlatformTransactionManager platformTransactionManager = datastore.getTransactionManager()
+        applicationContext.registerSingleton(SessionFactory, sessionFactory)
+        applicationContext.registerSingleton(DataSource, dataSource)
+        applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byName("hibernate"))
+        applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byStereotype(Primary))
+
+        Collection<Collection<Service>> gormServices = datastore.getServices().split {
+            !it.class.isAnnotationPresent(grails.gorm.services.Service)
         }
-        for (o in datastore.getServices()) {
-            applicationContext.inject(o)
+        for(services in gormServices) {
+            for (o in services) {
+                applicationContext.registerSingleton(o, false)
+            }
+            for (o in services) {
+                applicationContext.inject(o)
+            }
         }
 
         return datastore
@@ -89,4 +104,6 @@ class HibernateDatastoreFactory {
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getTransactionManager()
     }
+
+
 }
