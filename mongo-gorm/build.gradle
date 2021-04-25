@@ -17,5 +17,5 @@ dependencies {
     testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"    
     testImplementation "io.micronaut:micronaut-http-server:$micronautVersion"    
     testImplementation "io.micronaut:micronaut-http-client:$micronautVersion"
-    testImplementation "org.testcontainers:spock:1.15.2"
+    testImplementation "org.testcontainers:spock:1.15.3"
 }
