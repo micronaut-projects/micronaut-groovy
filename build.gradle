@@ -13,6 +13,7 @@ subprojects { Project subproject ->
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     if (subproject.name != 'groovy-bom') {
