@@ -1,4 +1,4 @@
 dependencies {
-    implementation "io.micronaut:micronaut-multitenancy:$micronautVersion"        
+    implementation "io.micronaut:micronaut-multitenancy:$multitenancyVersion"
     api "org.grails:grails-datastore-core:$gormVersion"
 }
