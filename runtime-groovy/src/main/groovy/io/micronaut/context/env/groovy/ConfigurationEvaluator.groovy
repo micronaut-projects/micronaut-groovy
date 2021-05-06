@@ -27,7 +27,6 @@ import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer
 import org.codehaus.groovy.transform.ASTTransformation
 import org.codehaus.groovy.transform.GroovyASTTransformation
 
-
 /**
  * Evaluates type safe configurations converting property paths to calls to setProperty(..) and returning a map of
  * all assigned configuration values

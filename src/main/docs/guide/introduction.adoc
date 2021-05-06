@@ -1,3 +1,1 @@
 This project includes various subprojects that improve the Micronaut experience for Groovy users.
-
-

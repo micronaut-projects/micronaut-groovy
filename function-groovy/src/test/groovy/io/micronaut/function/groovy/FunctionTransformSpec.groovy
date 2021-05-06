@@ -74,7 +74,7 @@ Maybe<String> helloWorldMaster() {
 package test
 
 int round(float value) {
-    Math.round(value) 
+    Math.round(value)
 }
 ''')
 
@@ -102,7 +102,7 @@ class PojoResult implements Serializable {
 }
 
 PojoResult getResult() {
-    null 
+    null
 }
 ''')
 
@@ -121,7 +121,7 @@ PojoResult getResult() {
 package test
 
 int val() {
-    return 10 
+    return 10
 }
 ''')
 
@@ -142,10 +142,10 @@ int val() {
 package test
 
 int round(float value) {
-    Math.round(value) 
+    Math.round(value)
 }
 int round2(float value) {
-    Math.round(value) 
+    Math.round(value)
 }
 ''')
 
@@ -171,7 +171,7 @@ import io.micronaut.core.convert.*
 @Field ConversionService conversionService
 
 int round(float value) {
-    Math.round(value) 
+    Math.round(value)
 }
 ''')
 
@@ -195,7 +195,7 @@ class Test { String name }
 import test.*
 
 Test test(Test test) {
-    test 
+    test
 }
 ''')
 
@@ -266,7 +266,6 @@ Test test(Test test) {
 
         HttpResponse response = flowable.blockingFirst()
 
-
         then:
         response.code() == HttpStatus.OK.code
         context.getBean(MessageService).messages.contains(message)
@@ -281,7 +280,7 @@ Test test(Test test) {
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
         EmbeddedServer server = context.getBean(EmbeddedServer).start()
         def data = '{"a":10, "b":5}'
-        
+
         when:
         def conditions = new PollingConditions()
 

@@ -21,7 +21,7 @@ import io.micronaut.core.io.ResourceLoader
 import spock.lang.Specification
 
 /**
- * Created by graemerocher on 15/06/2017.
+ * @author Graeme Rocher
  */
 class ConfigurationEvaluatorSpec extends Specification {
 
@@ -61,8 +61,6 @@ dataSource.something = [1,2]
         propertySource.get("dataSource.pooled") == true
         propertySource.get("dataSource.password") == ''
         propertySource.get("dataSource.something") == [1,2]
-
-
     }
 
     void "test evaluate config simple nested assignment"() {

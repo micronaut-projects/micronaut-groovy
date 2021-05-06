@@ -20,5 +20,5 @@ import groovy.transform.Field
 @Field MessageService messageService
 
 void send(String title, String body) {
-    messageService.send(new Message(title: title, body: body))    
+    messageService.send(new Message(title: title, body: body))
 }
