@@ -1,7 +1,7 @@
-
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
+
 dependencies {
     compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 

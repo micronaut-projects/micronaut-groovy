@@ -51,7 +51,6 @@ class MongoDatastoreFactorySpec extends Specification {
                 .start()
     }
 
-
     @Rollback
     void "test configure GORM for MongoDB"() {
         when:
@@ -70,7 +69,6 @@ class MongoDatastoreFactorySpec extends Specification {
 
         then:
         thrown(ValidationException)
-
     }
 
     void "test MongoClient is available"() {

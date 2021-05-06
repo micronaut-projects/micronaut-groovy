@@ -1,4 +1,4 @@
 dependencies {
     api "org.codehaus.groovy:groovy:$groovyVersion"
-    implementation "io.micronaut:micronaut-inject:$micronautVersion"    
+    implementation "io.micronaut:micronaut-inject:$micronautVersion"
 }

@@ -67,7 +67,7 @@ class GormConfigSpec extends Specification {
 
         when:
         PlatformTransactionManager platformTransactionManager = applicationContext.getBean(PlatformTransactionManager)
-        
+
         then: 'GrailsHibernateTransactionManager because the factory annotates with @Primary'
         noExceptionThrown()
 

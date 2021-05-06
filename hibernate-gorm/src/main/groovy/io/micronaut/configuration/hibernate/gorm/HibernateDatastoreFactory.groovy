@@ -104,6 +104,4 @@ class HibernateDatastoreFactory {
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getTransactionManager()
     }
-
-
 }

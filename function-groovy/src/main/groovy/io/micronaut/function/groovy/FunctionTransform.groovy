@@ -86,7 +86,6 @@ class FunctionTransform implements ASTTransformation {
     public static final ClassNode PROPERTY_ANNOTATION = ClassHelper.make(Property)
     public static final ClassNode VALUE_ANNOTATION = ClassHelper.make(Value)
 
-
     @Override
     void visit(ASTNode[] nodes, SourceUnit source) {
 
