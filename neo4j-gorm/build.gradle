@@ -18,5 +18,5 @@ dependencies {
     testRuntimeOnly("org.neo4j.test:neo4j-harness") {
         exclude group: "io.netty", module: "netty-all"
     }
-    testRuntimeOnly 'io.netty:netty-transport-native-epoll:4.1.63.Final'
+    testRuntimeOnly 'io.netty:netty-transport-native-epoll:4.1.65.Final'
 }
