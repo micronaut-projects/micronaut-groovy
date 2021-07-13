@@ -1,3 +1,4 @@
+io.micronaut.configuration.gorm.annotation
 io.micronaut.configuration.gorm.configuration
 io.micronaut.configuration.gorm.event
 io.micronaut.configuration.mongo.gorm
