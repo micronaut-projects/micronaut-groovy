@@ -26,14 +26,14 @@ import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Primary
 import io.micronaut.inject.qualifiers.Qualifiers
+import jakarta.inject.Named
+import jakarta.inject.Singleton
 import org.grails.datastore.mapping.services.Service
 import org.grails.orm.hibernate.HibernateDatastore
 import org.grails.orm.hibernate.connections.HibernateConnectionSource
 import org.hibernate.SessionFactory
 import org.springframework.transaction.PlatformTransactionManager
 
-import javax.inject.Named
-import javax.inject.Singleton
 import javax.sql.DataSource
 import java.util.stream.Stream
 
@@ -58,7 +58,7 @@ class HibernateDatastoreFactory {
     @Context
     HibernateDatastore hibernateDatastore() {
         log.info("Starting GORM for Hibernate")
-        Stream<Class> entities = applicationContext.environment.scan(Entity)
+        Stream<Class<?>> entities = applicationContext.environment.scan(Entity)
         Class[] classes = entities.toArray() as Class[]
         HibernateDatastore datastore = new HibernateDatastore(
             new GormPropertyResolverAdapter(applicationContext, applicationContext),

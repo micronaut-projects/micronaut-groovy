@@ -20,6 +20,8 @@ import grails.gorm.services.Service
 import grails.gorm.transactions.TransactionService
 import io.micronaut.context.annotation.Primary
 import io.micronaut.inject.qualifiers.Qualifiers
+import jakarta.inject.Inject
+import jakarta.inject.Singleton
 import org.grails.datastore.mapping.validation.ValidationException
 import org.grails.orm.hibernate.GrailsHibernateTransactionManager
 import org.grails.orm.hibernate.cfg.Settings
@@ -32,8 +34,6 @@ import spock.lang.Shared
 import spock.lang.Specification
 
 import javax.annotation.PostConstruct
-import javax.inject.Inject
-import javax.inject.Singleton
 import javax.sql.DataSource
 
 /**
@@ -106,7 +106,7 @@ class GormConfigSpec extends Specification {
 
         given:
         def config = [(Settings.SETTING_DB_CREATE): 'create-drop'] + sharedConfig
-        ApplicationContext applicationContext = ApplicationContext.build(config)
+        ApplicationContext applicationContext = ApplicationContext.builder(config)
                                                                   .mainClass(GormConfigSpec)
                                                                   .start()
 

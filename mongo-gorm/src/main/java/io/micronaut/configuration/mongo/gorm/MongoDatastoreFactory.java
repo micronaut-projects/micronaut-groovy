@@ -28,11 +28,10 @@ import io.micronaut.context.annotation.Primary;
 import io.micronaut.context.annotation.Secondary;
 import io.micronaut.context.env.Environment;
 import io.micronaut.spring.core.env.PropertyResolverAdapter;
+import jakarta.inject.Named;
+import jakarta.inject.Singleton;
 import org.grails.datastore.mapping.mongo.MongoDatastore;
 import org.springframework.transaction.PlatformTransactionManager;
-
-import javax.inject.Named;
-import javax.inject.Singleton;
 
 /**
  * Sets up GORM for MongoDB.

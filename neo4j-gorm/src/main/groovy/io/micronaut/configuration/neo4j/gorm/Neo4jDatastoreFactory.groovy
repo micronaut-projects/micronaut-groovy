@@ -27,12 +27,12 @@ import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires
 import io.micronaut.context.env.Environment
 import io.micronaut.neo4j.bolt.condition.RequiresNeo4j
+import jakarta.inject.Named
+import jakarta.inject.Singleton
 import org.grails.datastore.gorm.neo4j.Neo4jDatastore
 import org.grails.datastore.gorm.neo4j.Neo4jDatastoreTransactionManager
 import org.neo4j.driver.Driver
 
-import javax.inject.Named
-import javax.inject.Singleton
 import java.util.stream.Stream
 
 /**
@@ -51,7 +51,7 @@ class Neo4jDatastoreFactory {
     @Bean(preDestroy = "close")
     Neo4jDatastore neo4jDatastore(Driver driver, ApplicationContext applicationContext) {
         Environment environment = applicationContext.getEnvironment()
-        Stream<Class> entities = environment.scan(Entity)
+        Stream<Class<?>> entities = environment.scan(Entity)
             .filter({ Class c -> Neo4jEntity.isAssignableFrom(c) })
         Class[] classes = entities.toArray() as Class[]
         Neo4jDatastore datastore = new Neo4jDatastore(

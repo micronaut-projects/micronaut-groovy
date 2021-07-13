@@ -15,8 +15,15 @@
  */
 package io.micronaut.function.groovy
 
+import groovy.transform.CompilationUnitAware
+import io.micronaut.ast.groovy.utils.AstAnnotationUtils
 import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Value
+import io.micronaut.core.annotation.AnnotationMetadata
+import io.micronaut.core.annotation.AnnotationUtil
+import io.micronaut.core.annotation.Internal
+import jakarta.inject.Inject
+import org.codehaus.groovy.control.CompilationUnit
 
 import static org.codehaus.groovy.ast.tools.GeneralUtils.args
 import static org.codehaus.groovy.ast.tools.GeneralUtils.block
@@ -36,7 +43,6 @@ import groovy.transform.CompileStatic
 import groovy.transform.Field
 import io.micronaut.ast.groovy.InjectTransform
 import io.micronaut.ast.groovy.utils.AstMessageUtils
-import io.micronaut.ast.groovy.utils.AstUtils
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.groovy.SetPropertyTransformer
 import io.micronaut.core.naming.NameUtils
@@ -81,10 +87,13 @@ import java.util.function.Supplier
  */
 @CompileStatic
 @GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
-class FunctionTransform implements ASTTransformation {
+class FunctionTransform implements ASTTransformation, CompilationUnitAware {
+
+    CompilationUnit compilationUnit
+
     public static final ClassNode FIELD_TYPE = ClassHelper.make(Field)
-    public static final ClassNode PROPERTY_ANNOTATION = ClassHelper.make(Property)
-    public static final ClassNode VALUE_ANNOTATION = ClassHelper.make(Value)
+    private static final ClassNode INTERNAL_ANNOTATION = ClassHelper.make(Internal)
+    private static final ClassNode INJECT_ANNOTATION = ClassHelper.make(Inject)
 
     @Override
     void visit(ASTNode[] nodes, SourceUnit source) {
@@ -111,7 +120,7 @@ class FunctionTransform implements ASTTransformation {
                 if (functionMethod == null) {
                     AstMessageUtils.error(source, node, "Function must have at least one public method")
                 } else {
-                    MethodNode runMethod = node.getMethod("run", AstUtils.ZERO_PARAMETERS)
+                    MethodNode runMethod = node.getMethod("run", new Parameter[0])
                     node.removeMethod(runMethod)
                     MethodNode mainMethod = node.getMethod("main", new Parameter(ClassHelper.make(([] as String[]).class), "args"))
                     Parameter argParam = mainMethod.getParameters()[0]
@@ -162,10 +171,11 @@ class FunctionTransform implements ASTTransformation {
                                     DeclarationExpression de = (DeclarationExpression) exp
                                     def initial = de.getVariableExpression().getInitialExpression()
                                     if (initial == null) {
-                                        if (!de.getAnnotations(AstUtils.INJECT_ANNOTATION) &&
-                                                !de.getAnnotations(VALUE_ANNOTATION) &&
-                                                !de.getAnnotations(PROPERTY_ANNOTATION)) {
-                                            de.addAnnotation(new AnnotationNode(AstUtils.INJECT_ANNOTATION))
+                                        AnnotationMetadata annotationMetadata = AstAnnotationUtils.getAnnotationMetadata(source, compilationUnit, de)
+                                        if (!annotationMetadata.hasStereotype(AnnotationUtil.INJECT) &&
+                                                !annotationMetadata.hasAnnotation(Value.class) &&
+                                                !annotationMetadata.hasAnnotation(Property.class)) {
+                                            de.addAnnotation(new AnnotationNode(INJECT_ANNOTATION))
                                         }
                                         new FieldASTTransformation().visit([new AnnotationNode(FIELD_TYPE), de] as ASTNode[], source)
                                     }
@@ -202,19 +212,20 @@ class FunctionTransform implements ASTTransformation {
                         )
                     )
                     for (field in node.getFields()) {
-                        if (!field.getAnnotations(AstUtils.INJECT_ANNOTATION) &&
-                                !field.getAnnotations(VALUE_ANNOTATION) &&
-                                !field.getAnnotations(PROPERTY_ANNOTATION)) {
-                            field.addAnnotation(new AnnotationNode(AstUtils.INJECT_ANNOTATION))
+                        AnnotationMetadata annotationMetadata = AstAnnotationUtils.getAnnotationMetadata(source, compilationUnit, field)
+                        if (!annotationMetadata.hasStereotype(AnnotationUtil.INJECT) &&
+                                !annotationMetadata.hasAnnotation(Value.class) &&
+                                !annotationMetadata.hasAnnotation(Property.class)) {
+                            field.addAnnotation(new AnnotationNode(INJECT_ANNOTATION))
                         }
                         def setterName = getSetterName(field.getName())
                         def setterMethod = node.getMethod(setterName, params(param(field.getType(), "arg")))
                         if (setterMethod != null) {
-                            setterMethod.addAnnotation(new AnnotationNode(AstUtils.INTERNAL_ANNOTATION))
+                            setterMethod.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
                         }
                     }
 
-                    applicationContextConstructor.addAnnotation(new AnnotationNode(AstUtils.INJECT_ANNOTATION))
+                    applicationContextConstructor.addAnnotation(new AnnotationNode(INJECT_ANNOTATION))
                     def functionBean = new AnnotationNode(ClassHelper.make(FunctionBean))
                     String functionName = NameUtils.hyphenate(node.nameWithoutPackage)
                     functionName -= '-function'
@@ -260,10 +271,10 @@ class FunctionTransform implements ASTTransformation {
                 ClassHelper.make(Supplier).plainNodeReference,
                 new GenericsType(returnType)
         ))
-        def mn = new MethodNode("get", Modifier.PUBLIC, returnType, AstUtils.ZERO_PARAMETERS, null, stmt(
+        def mn = new MethodNode("get", Modifier.PUBLIC, returnType, new Parameter[0], null, stmt(
                 callX(varX("this"), functionMethod.getName())
         ))
-        mn.addAnnotation(new AnnotationNode(AstUtils.INTERNAL_ANNOTATION))
+        mn.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
         node.addMethod(mn)
     }
 
@@ -312,7 +323,7 @@ class FunctionTransform implements ASTTransformation {
         def mn = new MethodNode(methodName, Modifier.PUBLIC, returnType, params as Parameter[], null, stmt(
             callX(varX("this"), functionMethod.getName(), argList))
         )
-        mn.addAnnotation(new AnnotationNode(AstUtils.INTERNAL_ANNOTATION))
+        mn.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
         classNode.addMethod(mn)
     }
 }

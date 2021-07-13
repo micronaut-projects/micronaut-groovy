@@ -13,7 +13,8 @@ subprojects { Project subproject ->
 
     repositories {
         mavenCentral()
-        jcenter()
+        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://repo.grails.org/grails/core" }
     }
 
     if (subproject.name != 'groovy-bom') {
@@ -38,7 +39,11 @@ subprojects { Project subproject ->
             testImplementation("org.spockframework:spock-core:$spockVersion") {
                 exclude module:'groovy-all'
             }
-            testImplementation "io.micronaut.test:micronaut-test-spock:$micronautTestVersion"
+            testImplementation("io.micronaut.test:micronaut-test-spock:$micronautTestVersion") {
+                exclude module: 'micronaut-bom'
+                exclude module: 'micronaut-runtime'
+            }
+            testImplementation("io.micronaut:micronaut-runtime:$micronautVersion")
         }
     }
 }

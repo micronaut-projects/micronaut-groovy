@@ -17,8 +17,7 @@ package io.micronaut.function.groovy
 
 import io.micronaut.function.executor.FunctionExitHandler
 
-import javax.inject.Singleton
-
+import jakarta.inject.Singleton
 /**
  * @author graemerocher
  * @since 1.0
