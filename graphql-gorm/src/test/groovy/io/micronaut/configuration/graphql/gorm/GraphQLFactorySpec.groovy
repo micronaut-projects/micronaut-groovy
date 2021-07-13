@@ -3,8 +3,8 @@ package io.micronaut.configuration.graphql.gorm
 import graphql.GraphQL
 import graphql.schema.GraphQLCodeRegistry
 import graphql.schema.GraphQLSchema
-import io.micronaut.context.ApplicationContext
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
+import jakarta.inject.Inject
 import org.grails.gorm.graphql.GraphQLServiceManager
 import org.grails.gorm.graphql.Schema
 import org.grails.gorm.graphql.binding.GraphQLDataBinder
@@ -19,8 +19,6 @@ import org.grails.gorm.graphql.response.pagination.GraphQLPaginationResponseHand
 import org.grails.gorm.graphql.types.DefaultGraphQLTypeManager
 import org.grails.gorm.graphql.types.GraphQLTypeManager
 import spock.lang.Specification
-
-import javax.inject.Inject
 
 @MicronautTest
 class GraphQLFactorySpec extends Specification {

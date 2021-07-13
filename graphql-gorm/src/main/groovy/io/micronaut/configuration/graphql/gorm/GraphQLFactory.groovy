@@ -21,8 +21,10 @@ import graphql.schema.GraphQLSchema
 import groovy.transform.CompileStatic
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires
+import io.micronaut.core.annotation.Nullable
 import io.micronaut.core.bind.BeanPropertyBinder
 import io.micronaut.core.util.StringUtils
+import jakarta.inject.Singleton
 import org.grails.datastore.mapping.core.Datastore
 import org.grails.datastore.mapping.model.MappingContext
 import org.grails.gorm.graphql.GraphQLServiceManager
@@ -47,9 +49,6 @@ import org.grails.gorm.graphql.types.DefaultGraphQLTypeManager
 import org.grails.gorm.graphql.types.GraphQLTypeManager
 import org.springframework.context.MessageSource
 import org.springframework.context.support.StaticMessageSource
-
-import javax.annotation.Nullable
-import javax.inject.Singleton
 
 /**
  * Constructs all beans required to build the schema.
