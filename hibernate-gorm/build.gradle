@@ -6,7 +6,7 @@ dependencies {
     implementation "io.micronaut.spring:micronaut-spring:3.1.0"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation project(":runtime-groovy")
-    implementation project(":gorm-common")
+    api project(":gorm-common")
     api "org.grails:grails-datastore-gorm-hibernate5:$gormHibernateVersion"
 
     testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"

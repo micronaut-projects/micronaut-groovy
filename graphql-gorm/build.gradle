@@ -8,7 +8,9 @@ dependencies {
     api "org.grails:grails-datastore-gorm:$gormVersion"
     api "com.graphql-java:graphql-java:$graphqlJavaVersion"
     api "org.grails:gorm-graphql:2.0.0"
+    api project(":gorm-common")
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
+    testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 }
 
 micronautBuild {

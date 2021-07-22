@@ -24,7 +24,6 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType
 import io.micronaut.http.client.HttpClient
 import io.micronaut.runtime.server.EmbeddedServer
-import io.reactivex.Flowable
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
 import spock.lang.Ignore
@@ -54,9 +53,11 @@ class FunctionTransformSpec extends Specification {
         Class functionClass = gcl.parseClass('''
 package test
 
-import io.reactivex.Maybe
-Maybe<String> helloWorldMaster() {
-    Maybe.just('hello-world-master')
+import io.micronaut.core.async.publisher.Publishers
+import org.reactivestreams.Publisher
+
+Publisher<String> helloWorldMaster() {
+    Publishers.just('hello-world-master')
 }
 ''')
 
@@ -257,14 +258,10 @@ Test test(Test test) {
         def data = '{"title":"Hello", "body":"World"}'
 
         when:
-        Flowable<HttpResponse> flowable = Flowable.fromPublisher(
-                client.exchange(
-                        HttpRequest.POST("/notify-with-args", data)
-                                .contentType(MediaType.APPLICATION_JSON_TYPE)
-                )
+        HttpResponse response = client.toBlocking().exchange(
+                HttpRequest.POST("/notify-with-args", data)
+                        .contentType(MediaType.APPLICATION_JSON_TYPE)
         )
-
-        HttpResponse response = flowable.blockingFirst()
 
         then:
         response.code() == HttpStatus.OK.code
@@ -291,20 +288,18 @@ Test test(Test test) {
 
         when:
         HttpClient client = context.createBean(HttpClient, server.getURL())
-        Flowable<HttpResponse<String>> flowable = Flowable.fromPublisher(
-                client.exchange(
-                        HttpRequest.POST("/sum", data)
-                                .contentType(MediaType.APPLICATION_JSON_TYPE),
-                        String
-                )
+        HttpResponse<String> response = client.toBlocking().exchange(
+                HttpRequest.POST("/sum", data)
+                        .contentType(MediaType.APPLICATION_JSON_TYPE),
+                String
         )
-        HttpResponse<String> response = flowable.blockingFirst()
 
         then:
         response.code() == HttpStatus.OK.code
         response.getBody().get() == '15'
 
         cleanup:
+        client.close()
         server?.stop()
     }
 
@@ -316,14 +311,6 @@ Test test(Test test) {
 
         def data = '1.6'
 
-        Flowable<HttpResponse<String>> flowable = Flowable.fromPublisher(
-                client.exchange(
-                        HttpRequest.POST("/round", data)
-                                .contentType(MediaType.TEXT_PLAIN_TYPE),
-                        String
-                )
-        )
-
         when:
         def conditions = new PollingConditions()
 
@@ -333,7 +320,11 @@ Test test(Test test) {
         }
 
         when:
-        HttpResponse<String> response = flowable.blockingFirst()
+        HttpResponse<String> response = client.toBlocking().exchange(
+                HttpRequest.POST("/round", data)
+                        .contentType(MediaType.TEXT_PLAIN_TYPE),
+                String
+        )
 
         then:
         response.code() == HttpStatus.OK.code
@@ -349,13 +340,6 @@ Test test(Test test) {
         EmbeddedServer server = context.getBean(EmbeddedServer).start()
         HttpClient client = context.createBean(HttpClient, server.getURL())
 
-        Flowable<HttpResponse<String>> flowable = Flowable.fromPublisher(
-                client.exchange(
-                        HttpRequest.GET("/max"),
-                        String
-                )
-        )
-
         when:
         def conditions = new PollingConditions()
 
@@ -365,7 +349,10 @@ Test test(Test test) {
         }
 
         when:
-        HttpResponse<String> response = flowable.blockingFirst()
+        HttpResponse<String> response = client.toBlocking().exchange(
+                HttpRequest.GET("/max"),
+                String
+        )
 
         then:
         response.code() == HttpStatus.OK.code
