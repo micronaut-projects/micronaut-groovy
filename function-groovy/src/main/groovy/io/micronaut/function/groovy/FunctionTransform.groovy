@@ -86,7 +86,7 @@ import java.util.function.Supplier
  * @since 1.0
  */
 @CompileStatic
-@GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
+@GroovyASTTransformation(phase = CompilePhase.SEMANTIC_ANALYSIS)
 class FunctionTransform implements ASTTransformation, CompilationUnitAware {
 
     CompilationUnit compilationUnit
