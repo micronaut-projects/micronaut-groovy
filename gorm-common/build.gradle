@@ -2,6 +2,8 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
     annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"
 
+    compileOnly "io.micronaut:micronaut-http-server:$micronautVersion"
+
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation "io.micronaut:micronaut-inject:$micronautVersion"
     implementation "io.micronaut.spring:micronaut-spring:3.1.0"
