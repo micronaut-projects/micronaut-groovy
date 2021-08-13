@@ -1,5 +1,7 @@
+io.micronaut.configuration.gorm.annotation
 io.micronaut.configuration.gorm.configuration
 io.micronaut.configuration.gorm.event
+io.micronaut.configuration.gorm.validation
 io.micronaut.configuration.mongo.gorm
 io.micronaut.configuration.neo4j.gorm.configuration
 io.micronaut.context.env.groovy
