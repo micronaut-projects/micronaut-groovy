@@ -49,7 +49,7 @@ class GormConfigSpec extends Specification {
 
     void "verity PlatformTransactionManager is qualified with name hibernate"() {
         given:
-        ApplicationContext applicationContext = ApplicationContext.build(applicationContextConfig)
+        ApplicationContext applicationContext = ApplicationContext.builder(applicationContextConfig)
                 .mainClass(GormConfigSpec)
                 .start()
 
@@ -88,7 +88,7 @@ class GormConfigSpec extends Specification {
 
     void "test beans for custom data source"() {
         given:
-        ApplicationContext applicationContext = ApplicationContext.build(applicationContextConfig)
+        ApplicationContext applicationContext = ApplicationContext.builder(applicationContextConfig)
                 .mainClass(GormConfigSpec)
                 .start()
 

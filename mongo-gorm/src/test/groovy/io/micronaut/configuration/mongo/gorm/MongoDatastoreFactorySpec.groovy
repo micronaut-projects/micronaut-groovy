@@ -46,7 +46,7 @@ class MongoDatastoreFactorySpec extends Specification {
 
     def setupSpec() {
         mongo.start()
-        applicationContext = ApplicationContext.build((MongoSettings.MONGODB_URI): "mongodb://${mongo.containerIpAddress}:${mongo.getMappedPort(27017)}")
+        applicationContext = ApplicationContext.builder((MongoSettings.MONGODB_URI): "mongodb://${mongo.containerIpAddress}:${mongo.getMappedPort(27017)}")
                 .mainClass(MongoDatastoreFactorySpec)
                 .start()
     }
