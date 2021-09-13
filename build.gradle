@@ -4,7 +4,7 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath "io.micronaut.build.internal:micronaut-gradle-plugins:4.0.1"
+        classpath "io.micronaut.build.internal:micronaut-gradle-plugins:4.1.1"
     }
 }
 
@@ -33,6 +33,11 @@ subprojects { Project subproject ->
     apply plugin: "io.micronaut.build.internal.dependency-updates"
 
     if (subproject.name != 'groovy-bom') {
+
+        configurations {
+            documentation
+        }
+
         dependencies {
             documentation ("com.github.javaparser:javaparser-core:3.23.0")
             testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
@@ -44,6 +49,10 @@ subprojects { Project subproject ->
                 exclude module: 'micronaut-runtime'
             }
             testImplementation("io.micronaut:micronaut-runtime:$micronautVersion")
+        }
+
+        groovydoc {
+            classpath += project.configurations.documentation
         }
     }
 }
