@@ -14,7 +14,7 @@ dependencies {
     // included for Java 11
     runtimeOnly 'javax.xml.bind:jaxb-api:2.3.1'
 
-    testRuntimeOnly "org.apache.tomcat:tomcat-jdbc:10.0.10"
+    testRuntimeOnly "org.apache.tomcat:tomcat-jdbc:10.0.11"
     testRuntimeOnly "com.h2database:h2:1.4.200"
     testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.5.7.Final'
 }
