@@ -39,7 +39,7 @@ subprojects { Project subproject ->
         }
 
         dependencies {
-            documentation ("com.github.javaparser:javaparser-core:3.23.0")
+            documentation ("com.github.javaparser:javaparser-core:3.23.1")
             testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
             testImplementation("org.spockframework:spock-core:$spockVersion") {
                 exclude module:'groovy-all'
