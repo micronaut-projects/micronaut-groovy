@@ -15,7 +15,7 @@ dependencies {
     runtimeOnly 'javax.xml.bind:jaxb-api:2.3.1'
 
     testRuntimeOnly "org.apache.tomcat:tomcat-jdbc:10.0.14"
-    testRuntimeOnly "com.h2database:h2:1.4.200"
+    testRuntimeOnly "com.h2database:h2:2.1.210"
     testRuntimeOnly 'org.hibernate:hibernate-ehcache:5.6.2.Final'
 }
 //compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
