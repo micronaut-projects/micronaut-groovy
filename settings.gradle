@@ -6,17 +6,20 @@ pluginManagement {
 }
 
 plugins {
-    id 'io.micronaut.build.shared.settings' version '4.2.2'
+    id 'io.micronaut.build.shared.settings' version '5.1.2'
 }
 
-rootProject.name = 'groovy'
+rootProject.name = 'micronaut-groovy'
 
-include 'groovy-bom'
 include 'function-groovy'
 include 'gorm-common'
+include 'graphql-gorm'
+include 'groovy-bom'
 include 'hibernate-gorm'
 include 'mongo-gorm'
+include 'multitenancy-gorm'
 include 'neo4j-gorm'
 include 'runtime-groovy'
-include 'multitenancy-gorm'
-include 'graphql-gorm'
+
+enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
+enableFeaturePreview 'VERSION_CATALOGS'

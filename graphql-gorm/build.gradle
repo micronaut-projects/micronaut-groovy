@@ -1,15 +1,18 @@
-repositories {
-    maven { url "https://repo.grails.org/grails/core" }
+plugins {
+    id 'io.micronaut.build.internal.groovy-module'
 }
 
 dependencies {
-    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
-    api "io.micronaut:micronaut-inject:$micronautVersion"
-    api "org.grails:grails-datastore-gorm:$gormVersion"
+    api projects.gormCommon
     api "com.graphql-java:graphql-java:$graphqlJavaVersion"
-    api "org.grails:gorm-graphql:2.0.0"
-    api project(":gorm-common")
+    api "io.micronaut:micronaut-inject:$micronautVersion"
+    api libs.gorm.graphql
+    api "org.grails:grails-datastore-gorm:$gormVersion"
+
+    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
+
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
+
     testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 }
 

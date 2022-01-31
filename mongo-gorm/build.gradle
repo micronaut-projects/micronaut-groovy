@@ -1,21 +1,26 @@
+plugins {
+    id 'io.micronaut.build.internal.groovy-module'
+}
+
 dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
-    annotationProcessor "io.micronaut.docs:micronaut-docs-asciidoc-config-props:$micronautDocsVersion"
 
-    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
-    implementation "io.micronaut.spring:micronaut-spring:3.1.1"
-    implementation "org.codehaus.groovy:groovy:$groovyVersion"
-    implementation project(":gorm-common")
-    implementation "io.micronaut.mongodb:micronaut-mongo-sync:3.2.0"
-    implementation "io.micronaut.beanvalidation:micronaut-hibernate-validator:3.0.0"
-    api "org.grails:grails-datastore-gorm-mongodb:$gormMongoVersion"
-    implementation "org.mongodb:mongodb-driver-sync:$mongoVersion"
+    api libs.gorm.mongo
 
     compileOnly "io.micronaut:micronaut-http-server:$micronautVersion"
-    implementation project(":runtime-groovy")
+    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
+
+    implementation projects.runtimeGroovy
+    implementation projects.gormCommon
+    implementation libs.micronaut.hibernate.validator
+    implementation libs.micronaut.mongo.sync
+    implementation libs.micronaut.spring
+    implementation "org.codehaus.groovy:groovy:$groovyVersion"
+    implementation libs.mongodb.driver.sync
 
     testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
-    testImplementation "io.micronaut:micronaut-http-server:$micronautVersion"
+
     testImplementation "io.micronaut:micronaut-http-client:$micronautVersion"
-    testImplementation "org.testcontainers:spock:1.16.2"
+    testImplementation "io.micronaut:micronaut-http-server:$micronautVersion"
+    testImplementation libs.testcontainers.spock
 }
