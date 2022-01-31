@@ -1,4 +1,9 @@
+plugins {
+    id 'io.micronaut.build.internal.groovy-module'
+}
+
 dependencies {
     api "org.codehaus.groovy:groovy:$groovyVersion"
+
     implementation "io.micronaut:micronaut-inject:$micronautVersion"
 }
