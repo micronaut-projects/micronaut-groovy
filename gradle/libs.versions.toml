@@ -8,7 +8,6 @@ javaparser = '3.23.1'
 jaxb-api = '2.3.1'
 micronaut-hibernate-validator = '3.0.0'
 micronaut-mongo-sync = '3.2.0'
-micronaut-multitenancy = '4.0.0'
 micronaut-neo4j = '4.2.0'
 micronaut-spring = '3.1.1'
 mongodb = '4.2.3'
@@ -26,7 +25,6 @@ javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = '
 jaxb-api = { module = 'javax.xml.bind:jaxb-api', version.ref = 'jaxb-api' }
 micronaut-hibernate-validator = { module = 'io.micronaut.beanvalidation:micronaut-hibernate-validator', version.ref = 'micronaut-hibernate-validator' }
 micronaut-mongo-sync = { module = 'io.micronaut.mongodb:micronaut-mongo-sync', version.ref = 'micronaut-mongo-sync' }
-micronaut-multitenancy = { module = 'io.micronaut.multitenancy:micronaut-multitenancy', version.ref = 'micronaut-multitenancy' }
 micronaut-neo4j = { module = 'io.micronaut.neo4j:micronaut-neo4j-bolt', version.ref = 'micronaut-neo4j' }
 micronaut-spring = { module = 'io.micronaut.spring:micronaut-spring', version.ref = 'micronaut-spring' }
 mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref = 'mongodb' }
