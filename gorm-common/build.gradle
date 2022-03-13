@@ -9,7 +9,9 @@ dependencies {
 
     compileOnly "io.micronaut:micronaut-http-server:$micronautVersion"
 
-    implementation libs.micronaut.spring
+    implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
+    implementation 'io.micronaut.spring:micronaut-spring'
+
     implementation "io.micronaut:micronaut-inject:$micronautVersion"
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
 }

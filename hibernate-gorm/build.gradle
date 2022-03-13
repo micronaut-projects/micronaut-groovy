@@ -10,8 +10,9 @@ dependencies {
 
     compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
 
+    implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation projects.runtimeGroovy
-    implementation libs.micronaut.spring
+    implementation 'io.micronaut.spring:micronaut-spring'
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
 
     runtimeOnly libs.jaxb.api // included for Java 11
