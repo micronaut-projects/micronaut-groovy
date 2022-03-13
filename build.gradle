@@ -3,3 +3,7 @@ plugins {
     id 'io.micronaut.build.internal.dependency-updates'
     id 'io.micronaut.build.internal.quality-reporting'
 }
+
+repositories {
+    maven { url "https://repo.grails.org/grails/core" }
+}
