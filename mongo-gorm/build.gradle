@@ -14,7 +14,7 @@ dependencies {
     implementation projects.runtimeGroovy
     implementation projects.gormCommon
     implementation libs.micronaut.hibernate.validator
-    implementation libs.micronaut.mongo.sync
+    implementation 'io.micronaut.mongodb:micronaut-mongo-sync'
     implementation 'io.micronaut.spring:micronaut-spring'
     implementation "org.codehaus.groovy:groovy:$groovyVersion"
     implementation libs.mongodb.driver.sync
