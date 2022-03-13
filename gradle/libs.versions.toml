@@ -6,7 +6,6 @@ h2 = '1.4.200'
 hibernate-ehcache = '5.6.2.Final'
 javaparser = '3.23.1'
 jaxb-api = '2.3.1'
-micronaut-hibernate-validator = '3.0.0'
 mongodb = '4.2.3'
 netty-native = '4.1.72.Final'
 testcontainers = '1.16.2'
@@ -20,7 +19,6 @@ h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
 hibernate-ehcache = { module = 'org.hibernate:hibernate-ehcache', version.ref = 'hibernate-ehcache' }
 javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }
 jaxb-api = { module = 'javax.xml.bind:jaxb-api', version.ref = 'jaxb-api' }
-micronaut-hibernate-validator = { module = 'io.micronaut.beanvalidation:micronaut-hibernate-validator', version.ref = 'micronaut-hibernate-validator' }
 mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref = 'mongodb' }
 netty-native = { module = 'io.netty:netty-transport-native-epoll', version.ref = 'netty-native' }
 testcontainers-spock = { module = 'org.testcontainers:spock', version.ref = 'testcontainers' }

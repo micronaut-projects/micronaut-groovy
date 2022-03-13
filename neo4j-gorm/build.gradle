@@ -12,7 +12,7 @@ dependencies {
     implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation projects.gormCommon
     implementation projects.runtimeGroovy
-    implementation libs.micronaut.hibernate.validator
+    implementation 'io.micronaut.beanvalidation:micronaut-hibernate-validator'
     implementation 'io.micronaut.neo4j:micronaut-neo4j-bolt'
     implementation 'io.micronaut.spring:micronaut-spring'
 
