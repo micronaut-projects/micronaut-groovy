@@ -170,7 +170,17 @@
 </div></p>
 </div>
 <div class="paragraph">
-<p>You can then define configuration Groovy config in <code>src/main/resources/application.groovy</code> in <a href="http://docs.groovy-lang.org/latest/html/gapi/groovy/util/ConfigSlurper.html">ConfigSlurper</a> format.</p>
+<p>You can then define configuration Groovy config in <code>src/main/resources/application.groovy</code> in <a href="http://docs.groovy-lang.org/latest/html/gapi/groovy/util/ConfigSlurper.html">ConfigSlurper</a> format.
+Because property names in a <code>ConfigSlurper</code> configuration file must be valid Groovy identifiers and cannot contain dashes, you can specify configuration entries either by converting them to camel-case or snake-case.</p>
+</div>
+<div class="listingblock">
+<div class="title">application.groovy</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">//set server-url property
+serverUrl = "https://localhost:8080"
+//alternatively
+server_url = "https://localhost:8080"</code></pre>
+</div>
 </div>
 
 <h1 id="functions"><a class="anchor" href="#functions"></a>4 Groovy Functions</h1>
