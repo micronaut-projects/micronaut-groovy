@@ -6,7 +6,7 @@ dependency:io.micronaut.groovy:micronaut-runtime-groovy[]
 
 
 You can then define configuration Groovy config in `src/main/resources/application.groovy` in http://docs.groovy-lang.org/latest/html/gapi/groovy/util/ConfigSlurper.html[ConfigSlurper] format.
-Because property names in a `ConfigSlurper` configuration file must be valid Groovy identifiers and cannot contain dashes, you can specify confinguration entries either by converting them to camel-case or snake-case. 
+Because property names in a `ConfigSlurper` configuration file must be valid Groovy identifiers and cannot contain dashes, you can specify configuration entries either by converting them to camel-case or snake-case. 
 
 [source,groovy]
 .application.groovy
