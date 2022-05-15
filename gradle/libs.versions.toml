@@ -9,7 +9,7 @@ jaxb-api = '2.3.1'
 mongodb = '4.2.3'
 netty-native = '4.1.72.Final'
 testcontainers = '1.17.1'
-tomcat-jdbc = '10.0.14'
+tomcat-jdbc = '10.0.20'
 
 [libraries]
 gorm-graphql = { module = 'org.grails:gorm-graphql', version.ref = 'gorm-graphql' }
