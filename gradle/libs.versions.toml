@@ -8,7 +8,7 @@ javaparser = '3.23.1'
 jaxb-api = '2.3.1'
 mongodb = '4.2.3'
 netty-native = '4.1.77.Final'
-testcontainers = '1.17.1'
+testcontainers = '1.17.2'
 tomcat-jdbc = '10.0.20'
 
 [libraries]
