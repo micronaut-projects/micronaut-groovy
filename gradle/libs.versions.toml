@@ -1,7 +1,7 @@
 [versions]
 gorm-graphql = '2.0.0'
 gorm-mongo = '7.1.0'
-gorm-neo4j = '7.1.0'
+gorm-neo4j = '7.3.0'
 h2 = '1.4.200'
 hibernate-ehcache = '5.6.9.Final'
 javaparser = '3.23.1'
