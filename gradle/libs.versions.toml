@@ -7,7 +7,7 @@ hibernate-ehcache = '5.6.10.Final'
 javaparser = '3.24.2'
 jaxb-api = '2.3.1'
 mongodb = '4.7.1'
-netty-native = '4.1.79.Final'
+netty-native = '4.1.80.Final'
 testcontainers = '1.17.3'
 tomcat-jdbc = '10.0.23'
 
