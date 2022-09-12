@@ -25,6 +25,10 @@ import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Primary
+import io.micronaut.context.annotation.Prototype
+import io.micronaut.context.event.BeanInitializedEventListener
+import io.micronaut.context.event.BeanInitializingEvent
+import io.micronaut.core.annotation.Internal
 import io.micronaut.inject.qualifiers.Qualifiers
 import jakarta.inject.Named
 import jakarta.inject.Singleton
@@ -60,23 +64,21 @@ class HibernateDatastoreFactory {
         log.info("Starting GORM for Hibernate")
         Stream<Class<?>> entities = applicationContext.environment.scan(Entity)
         Class[] classes = entities.toArray() as Class[]
-        HibernateDatastore datastore = new HibernateDatastore(
-            new GormPropertyResolverAdapter(applicationContext, applicationContext),
-            new ConfigurableEventPublisherAdapter(applicationContext),
-            classes
+        return new HibernateDatastore(
+                new GormPropertyResolverAdapter(applicationContext, applicationContext),
+                new ConfigurableEventPublisherAdapter(applicationContext),
+                classes
         )
-        SessionFactory sessionFactory = datastore.sessionFactory
-        DataSource dataSource = ((HibernateConnectionSource) datastore.getConnectionSources().defaultConnectionSource).getDataSource()
-        PlatformTransactionManager platformTransactionManager = datastore.getTransactionManager()
-        applicationContext.registerSingleton(SessionFactory, sessionFactory)
-        applicationContext.registerSingleton(DataSource, dataSource)
-        applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byName("hibernate"))
-        applicationContext.registerSingleton(PlatformTransactionManager, platformTransactionManager, Qualifiers.byStereotype(Primary))
+    }
 
-        Collection<Collection<Service>> gormServices = datastore.getServices().split {
+    @Bean
+    @Context
+    Dummy postHibernateDatastore(HibernateDatastore hibernateDatastore) {
+        // Create dummy context bean to inject services after HibernateDatastore is created to avoid circular problems
+        Collection<Collection<Service>> gormServices = hibernateDatastore.getServices().split {
             !it.class.isAnnotationPresent(grails.gorm.services.Service)
         }
-        for(services in gormServices) {
+        for (services in gormServices) {
             for (o in services) {
                 applicationContext.registerSingleton(o, false)
             }
@@ -84,8 +86,7 @@ class HibernateDatastoreFactory {
                 applicationContext.inject(o)
             }
         }
-
-        return datastore
+        return new Dummy()
     }
 
     @Singleton
@@ -104,4 +105,9 @@ class HibernateDatastoreFactory {
     PlatformTransactionManager transactionManager(HibernateDatastore hibernateDatastore) {
         hibernateDatastore.getTransactionManager()
     }
+
+}
+
+@Internal
+class Dummy {
 }
