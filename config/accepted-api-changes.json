@@ -1,0 +1,77 @@
+[
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$DataSource2$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$DataSource2$Definition$Reference",
+    "member": "Constructor io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$DataSource2$Definition$Reference()",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$SessionFactory1$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$SessionFactory1$Definition$Reference",
+    "member": "Constructor io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$SessionFactory1$Definition$Reference()",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$TransactionManager3$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$TransactionManager3$Definition$Reference",
+    "member": "Constructor io.micronaut.configuration.hibernate.gorm.$HibernateDatastoreFactory$TransactionManager3$Definition$Reference()",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Field __$stMC",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Constructor io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1(java.lang.Object,java.lang.Object)",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface java.lang.Cloneable",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface org.codehaus.groovy.runtime.GeneratedClosure",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface java.util.concurrent.Callable",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface groovy.lang.GroovyCallable",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface java.lang.Runnable",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface java.io.Serializable",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  },
+  {
+    "type": "io.micronaut.configuration.hibernate.gorm.HibernateDatastoreFactory$_hibernateDatastore_closure1",
+    "member": "Implemented interface groovy.lang.GroovyObject",
+    "reason": "Changes to HibernateDatastoreFactory to inject services after HibernateDatastore is created"
+  }
+]
