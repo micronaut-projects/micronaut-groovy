@@ -2,3 +2,27 @@ plugins {
     id 'io.micronaut.build.internal.module'
     id 'io.micronaut.build.internal.groovy-base'
 }
+
+micronautBuild {
+    enableBom = false
+}
+
+configurations {
+    documentation
+}
+
+dependencies {
+    documentation libs.javaparser
+
+    testImplementation "io.micronaut:micronaut-runtime:$micronautVersion"
+    testImplementation("io.micronaut.test:micronaut-test-spock:$micronautTestVersion") {
+        exclude module: 'micronaut-bom'
+        exclude module: 'micronaut-runtime'
+    }
+    testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
+    testImplementation "org.spockframework:spock-core:$spockVersion"
+}
+
+groovydoc {
+    classpath += project.configurations.documentation
+}
