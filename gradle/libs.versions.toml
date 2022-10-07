@@ -11,6 +11,9 @@ netty-native = '4.1.81.Final'
 testcontainers = '1.17.3'
 tomcat-jdbc = '10.0.23'
 
+# Plugins
+micronaut-gradle-plugin = "3.6.2"
+
 [libraries]
 gorm-graphql = { module = 'org.grails:gorm-graphql', version.ref = 'gorm-graphql' }
 gorm-mongo = { module = 'org.grails:grails-datastore-gorm-mongodb', version.ref = 'gorm-mongo' }
@@ -23,3 +26,7 @@ mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref 
 netty-native = { module = 'io.netty:netty-transport-native-epoll', version.ref = 'netty-native' }
 testcontainers-spock = { module = 'org.testcontainers:spock', version.ref = 'testcontainers' }
 tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
+groovy-test = { module = 'org.apache.groovy:groovy-test', version = '' }
+
+# Plugins
+gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }

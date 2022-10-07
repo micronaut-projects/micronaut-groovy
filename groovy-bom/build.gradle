@@ -2,6 +2,14 @@ plugins {
     id 'io.micronaut.build.internal.bom'
 }
 
-dependencies {
-    api platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
+micronautBom {
+    suppressions {
+        // GORM does not yet work with Groovy 4
+        acceptedLibraryRegressions.add("micronaut-mongo-gorm")
+        acceptedLibraryRegressions.add("micronaut-graphql-gorm")
+        acceptedLibraryRegressions.add("micronaut-hibernate-gorm")
+        acceptedLibraryRegressions.add("micronaut-neo4j-gorm")
+        acceptedLibraryRegressions.add("micronaut-multitenancy-gorm")
+        acceptedLibraryRegressions.add("micronaut-gorm-common")
+    }
 }

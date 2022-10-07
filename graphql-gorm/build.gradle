@@ -5,15 +5,15 @@ plugins {
 dependencies {
     api projects.gormCommon
     api "com.graphql-java:graphql-java:$graphqlJavaVersion"
-    api "io.micronaut:micronaut-inject:$micronautVersion"
-    api libs.gorm.graphql
-    api "org.grails:grails-datastore-gorm:$gormVersion"
+    api mn.micronaut.inject
+    api(libs.gorm.graphql)
+    api("org.grails:grails-datastore-gorm:$gormVersion")
 
-    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
+    compileOnly mn.micronaut.inject.groovy
 
-    implementation "org.codehaus.groovy:groovy:$groovyVersion"
+    implementation mn.groovy
 
-    testCompileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
+    testCompileOnly mn.micronaut.inject.groovy
 }
 
 micronautBuild {
