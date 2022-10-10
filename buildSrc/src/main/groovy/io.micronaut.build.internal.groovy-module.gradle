@@ -18,13 +18,13 @@ configurations {
 dependencies {
     documentation libs.javaparser
 
-    testImplementation "io.micronaut:micronaut-runtime:$micronautVersion"
-    testImplementation("io.micronaut.test:micronaut-test-spock:$micronautTestVersion") {
+    testImplementation mn.micronaut.runtime
+    testImplementation(mn.micronaut.test.spock) {
         exclude module: 'micronaut-bom'
         exclude module: 'micronaut-runtime'
     }
-    testImplementation "org.codehaus.groovy:groovy-test:$groovyVersion"
-    testImplementation "org.spockframework:spock-core:$spockVersion"
+    testImplementation libs.groovy.test
+    testImplementation mn.spock
 }
 
 groovydoc {
