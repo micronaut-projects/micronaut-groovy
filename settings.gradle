@@ -22,13 +22,7 @@ micronautBuild {
 rootProject.name = 'groovy-parent'
 
 include 'function-groovy'
-include 'gorm-common'
-include 'graphql-gorm'
 include 'groovy-bom'
-include 'hibernate-gorm'
-include 'mongo-gorm'
-include 'multitenancy-gorm'
-include 'neo4j-gorm'
 include 'runtime-groovy'
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
