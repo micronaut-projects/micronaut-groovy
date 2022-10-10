@@ -3,15 +3,14 @@ plugins {
 }
 
 dependencies {
-    compileOnly "io.micronaut:micronaut-inject-groovy:$micronautVersion"
+    compileOnly mn.micronaut.inject.groovy
 
     implementation projects.runtimeGroovy
-    implementation "io.micronaut:micronaut-function:$micronautVersion"
+    implementation mn.micronaut.function
 
-    testImplementation "io.micronaut:micronaut-function-web:$micronautVersion"
-    testImplementation "io.micronaut:micronaut-http-client:$micronautVersion"
-    testImplementation "io.micronaut:micronaut-inject-groovy:$micronautVersion"
+    testImplementation mn.micronaut.function.web
+    testImplementation mn.micronaut.http.client
+    testImplementation mn.micronaut.inject.groovy
 
-    testRuntimeOnly "io.micronaut:micronaut-http-server-netty:$micronautVersion"
+    testRuntimeOnly mn.micronaut.http.server.netty
 }
-//compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']

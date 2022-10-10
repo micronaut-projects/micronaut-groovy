@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    api "org.codehaus.groovy:groovy:$groovyVersion"
+    api mn.groovy
 
-    implementation "io.micronaut:micronaut-inject:$micronautVersion"
+    implementation mn.micronaut.inject
 }

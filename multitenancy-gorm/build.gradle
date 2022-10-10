@@ -4,6 +4,6 @@ plugins {
 
 dependencies {
     api "org.grails:grails-datastore-core:$gormVersion"
-    implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
-    implementation 'io.micronaut.multitenancy:micronaut-multitenancy'
+    implementation(platform(mn.micronaut.bom))
+    implementation mn.micronaut.multitenancy
 }

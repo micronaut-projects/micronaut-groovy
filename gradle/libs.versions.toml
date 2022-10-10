@@ -1,15 +1,18 @@
 [versions]
 gorm-graphql = '2.0.0'
 gorm-mongo = '7.3.0'
-gorm-neo4j = '7.1.0'
+gorm-neo4j = '7.3.0'
 h2 = '1.4.200'
-hibernate-ehcache = '5.6.10.Final'
+hibernate-ehcache = '5.6.12.Final'
 javaparser = '3.24.4'
 jaxb-api = '2.3.1'
 mongodb = '4.7.1'
-netty-native = '4.1.81.Final'
+netty-native = '4.1.82.Final'
 testcontainers = '1.17.3'
 tomcat-jdbc = '10.0.23'
+
+# Plugins
+micronaut-gradle-plugin = "3.6.2"
 
 [libraries]
 gorm-graphql = { module = 'org.grails:gorm-graphql', version.ref = 'gorm-graphql' }
@@ -23,3 +26,5 @@ mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref 
 netty-native = { module = 'io.netty:netty-transport-native-epoll', version.ref = 'netty-native' }
 testcontainers-spock = { module = 'org.testcontainers:spock', version.ref = 'testcontainers' }
 tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
+# Plugins
+gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
