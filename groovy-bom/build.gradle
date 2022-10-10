@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    api platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
+    api platform("org.apache.groovy:groovy-bom:$groovyVersion")
 }
