@@ -20,5 +20,8 @@ mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref 
 netty-native = { module = 'io.netty:netty-transport-native-epoll', version.ref = 'netty-native' }
 testcontainers-spock = { module = 'org.testcontainers:spock', version.ref = 'testcontainers' }
 tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
+
+groovy-test = { module = 'org.apache.groovy:groovy-test', version = '' }
+
 # Plugins
 gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
