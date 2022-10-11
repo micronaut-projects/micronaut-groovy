@@ -1,9 +1,0 @@
-plugins {
-    id 'io.micronaut.build.internal.groovy-module'
-}
-
-dependencies {
-    api "org.grails:grails-datastore-core:$gormVersion"
-    implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
-    implementation 'io.micronaut.multitenancy:micronaut-multitenancy'
-}

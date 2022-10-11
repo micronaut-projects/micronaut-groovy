@@ -2,7 +2,5 @@ introduction: Introduction
 releaseHistory: Release History
 config: Groovy Configuration
 functions: Groovy Functions
-gorm:
-  title: GORM Modules
-  multitenancyGorm: Multi-tenancy GORM
+gorm: GORM
 repository: Repository
