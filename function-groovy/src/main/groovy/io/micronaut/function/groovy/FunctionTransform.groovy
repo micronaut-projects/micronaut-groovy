@@ -16,7 +16,7 @@
 package io.micronaut.function.groovy
 
 import groovy.transform.CompilationUnitAware
-import io.micronaut.ast.groovy.utils.AstAnnotationUtils
+import io.micronaut.ast.groovy.annotation.GroovyAnnotationMetadataBuilder
 import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Value
 import io.micronaut.core.annotation.AnnotationMetadata
@@ -171,7 +171,7 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                                     DeclarationExpression de = (DeclarationExpression) exp
                                     def initial = de.getVariableExpression().getInitialExpression()
                                     if (initial == null) {
-                                        AnnotationMetadata annotationMetadata = AstAnnotationUtils.getAnnotationMetadata(source, compilationUnit, de)
+                                        AnnotationMetadata annotationMetadata = new GroovyAnnotationMetadataBuilder(source, compilationUnit).lookupOrBuildForType(de)
                                         if (!annotationMetadata.hasStereotype(AnnotationUtil.INJECT) &&
                                                 !annotationMetadata.hasAnnotation(Value.class) &&
                                                 !annotationMetadata.hasAnnotation(Property.class)) {
@@ -212,7 +212,7 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                         )
                     )
                     for (field in node.getFields()) {
-                        AnnotationMetadata annotationMetadata = AstAnnotationUtils.getAnnotationMetadata(source, compilationUnit, field)
+                        AnnotationMetadata annotationMetadata = new GroovyAnnotationMetadataBuilder(source, compilationUnit).lookupOrBuildForType(field)
                         if (!annotationMetadata.hasStereotype(AnnotationUtil.INJECT) &&
                                 !annotationMetadata.hasAnnotation(Value.class) &&
                                 !annotationMetadata.hasAnnotation(Property.class)) {
