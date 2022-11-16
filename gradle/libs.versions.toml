@@ -5,7 +5,7 @@ javaparser = '3.24.4'
 jaxb-api = '2.3.1'
 mongodb = '4.7.1'
 netty-native = '4.1.82.Final'
-testcontainers = '1.17.3'
+testcontainers = '1.17.6'
 tomcat-jdbc = '10.0.23'
 
 # Plugins
