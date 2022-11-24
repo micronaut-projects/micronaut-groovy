@@ -9,16 +9,6 @@ plugins {
     id 'io.micronaut.build.shared.settings' version '6.1.0'
 }
 
-dependencyResolutionManagement {
-    repositories {
-        maven { url = 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-    }
-}
-
-micronautBuild {
-    importMicronautCatalog()
-}
-
 rootProject.name = 'groovy-parent'
 
 include 'function-groovy'
@@ -26,3 +16,8 @@ include 'groovy-bom'
 include 'runtime-groovy'
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
+micronautBuild {
+    // Required for 4.0.0-SNAPSHOT, can be removed after
+    addSnapshotRepository()
+    importMicronautCatalog()
+}

@@ -2,8 +2,3 @@ plugins {
     id 'io.micronaut.build.internal.docs'
     id 'io.micronaut.build.internal.quality-reporting'
 }
-
-repositories {
-    maven { url "https://repo.grails.org/grails/core" }
-    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
-}
