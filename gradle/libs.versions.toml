@@ -9,7 +9,7 @@ jaxb-api = '2.3.1'
 mongodb = '4.8.0'
 netty-native = '4.1.85.Final'
 testcontainers = '1.17.6'
-tomcat-jdbc = '10.0.23'
+tomcat-jdbc = '10.1.2'
 
 # Plugins
 micronaut-gradle-plugin = "3.6.5"
