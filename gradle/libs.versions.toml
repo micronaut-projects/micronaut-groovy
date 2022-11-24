@@ -12,7 +12,7 @@ testcontainers = '1.17.6'
 tomcat-jdbc = '10.0.23'
 
 # Plugins
-micronaut-gradle-plugin = "3.6.2"
+micronaut-gradle-plugin = "3.6.5"
 
 [libraries]
 gorm-graphql = { module = 'org.grails:gorm-graphql', version.ref = 'gorm-graphql' }
