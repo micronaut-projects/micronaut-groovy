@@ -20,4 +20,5 @@ micronautBuild {
     // Required for 4.0.0-SNAPSHOT, can be removed after
     addSnapshotRepository()
     importMicronautCatalog()
+    importMicronautCatalog("micronaut-test")
 }
