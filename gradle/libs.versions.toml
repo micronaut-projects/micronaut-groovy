@@ -8,9 +8,6 @@ netty-native = '4.1.85.Final'
 testcontainers = '1.17.6'
 tomcat-jdbc = '10.1.2'
 
-# Platform
-micronaut-test = '4.0.0-SNAPSHOT'
-
 # Plugins
 micronaut-gradle-plugin = "3.6.5"
 
@@ -25,10 +22,6 @@ testcontainers-spock = { module = 'org.testcontainers:spock', version.ref = 'tes
 tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
 
 groovy-test = { module = 'org.apache.groovy:groovy-test', version = '' }
-
-# Platform
-
-micronaut-test = { module = 'io.micronaut.test:micronaut-test-bom', version.ref = 'micronaut-test' }
 
 # Plugins
 gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
