@@ -15,10 +15,6 @@ dependencies {
     documentation libs.javaparser
 
     testImplementation mn.micronaut.runtime
-    testImplementation(mnTest.micronaut.test.spock) {
-        exclude module: 'micronaut-bom'
-        exclude module: 'micronaut-runtime'
-    }
     testImplementation libs.groovy.test
 }
 
