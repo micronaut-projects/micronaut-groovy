@@ -12,7 +12,7 @@ micronaut-docs = "2.0.0"
 micronaut = "4.0.0-SNAPSHOT"
 micronaut-test = "4.0.0-SNAPSHOT"
 groovy = "4.0.6"
-spock = "2.2-groovy-4.0"
+spock = "2.3-groovy-4.0"
 
 # Plugins
 micronaut-gradle-plugin = "3.6.6"
