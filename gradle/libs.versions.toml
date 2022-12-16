@@ -1,15 +1,21 @@
 [versions]
-h2 = '1.4.200'
+h2 = '2.1.214'
 hibernate-ehcache = '5.6.14.Final'
 javaparser = '3.24.8'
 jaxb-api = '2.3.1'
-mongodb = '4.8.0'
+mongodb = '4.8.1'
 netty-native = '4.1.85.Final'
 testcontainers = '1.17.6'
-tomcat-jdbc = '10.1.2'
+tomcat-jdbc = '10.1.4'
+
+micronaut-docs = "2.0.0"
+micronaut = "4.0.0-SNAPSHOT"
+micronaut-test = "4.0.0-SNAPSHOT"
+groovy = "4.0.6"
+spock = "2.3-groovy-4.0"
 
 # Plugins
-micronaut-gradle-plugin = "3.6.5"
+micronaut-gradle-plugin = "3.6.6"
 
 [libraries]
 h2 = { module = 'com.h2database:h2', version.ref = 'h2' }

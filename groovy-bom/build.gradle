@@ -3,8 +3,9 @@ plugins {
 }
 
 dependencies {
-    api platform("org.apache.groovy:groovy-bom:$groovyVersion")
+    api platform("org.apache.groovy:groovy-bom:${libs.versions.groovy.get()}")
 }
+
 micronautBom {
     suppressions {
         // GORM does not yet work with Groovy 4
