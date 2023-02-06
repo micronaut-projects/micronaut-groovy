@@ -44,7 +44,7 @@ The following table contains all of the `TenantResolver implementations that shi
 
 You will need to add something like the following snippet to your app configuration:
 
-[source, yaml]
+[configuration]
 ----
 grails:
     gorm:

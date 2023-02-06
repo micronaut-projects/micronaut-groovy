@@ -46,7 +46,7 @@ You will likely want to add a connection pool implementation and potentially the
 You can now use the same http://gorm.grails.org/latest/hibernate/manual/index.html#configuration[configuration properties described in the GORM documentation]. For example:
 
 .Configuring GORM for Hibernate
-[source,yaml]
+[configuration]
 ----
 dataSource:
     pooled: true
@@ -153,7 +153,7 @@ To add support for GORM for MongoDB, first configure the MongoDB connection as p
 
 dependency:micronaut-mongo-gorm[groupId="io.micronaut.groovy"]
 
-WARNING: For GORM for MongoDB you will need to configure the database name separately as the `grails.mongodb.datataseName` property in `application.yml`.
+WARNING: For GORM for MongoDB you will need to configure the database name separately as the `grails.mongodb.datataseName` property in the application configuration file.
 
 The following should be noted regarding using GORM for MongoDB in Micronaut:
 
