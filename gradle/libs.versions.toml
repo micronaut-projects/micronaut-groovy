@@ -9,9 +9,9 @@ testcontainers = '1.18.0'
 tomcat-jdbc = '10.1.4'
 
 micronaut-docs = "2.0.0"
-micronaut = "4.0.0-M2"
-micronaut-test = "4.0.0-M2"
-groovy = "4.0.11"
+micronaut = "4.0.0-M3"
+micronaut-test = "4.0.0-M3"
+groovy = "4.0.12"
 spock = "2.3-groovy-4.0"
 
 # Plugins
