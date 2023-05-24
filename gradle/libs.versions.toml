@@ -9,13 +9,13 @@ testcontainers = '1.18.0'
 tomcat-jdbc = '10.1.4'
 
 micronaut-docs = "2.0.0"
-micronaut = "4.0.0-M3"
-micronaut-test = "4.0.0-M3"
+micronaut = "4.0.0-M5"
+micronaut-test = "4.0.0-M4"
 groovy = "4.0.12"
 spock = "2.3-groovy-4.0"
 
 # Plugins
-micronaut-gradle-plugin = "4.0.0-M1"
+micronaut-gradle-plugin = "4.0.0-M3"
 
 [libraries]
 h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
