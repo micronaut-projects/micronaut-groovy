@@ -3,10 +3,10 @@ h2 = '2.1.214'
 hibernate-ehcache = '5.6.14.Final'
 javaparser = '3.24.8'
 jaxb-api = '2.3.1'
-mongodb = '4.8.1'
+mongodb = '4.9.1'
 netty-native = '4.1.92.Final'
 testcontainers = '1.18.0'
-tomcat-jdbc = '10.1.4'
+tomcat-jdbc = '10.1.8'
 
 micronaut-docs = "2.0.0"
 micronaut = "4.0.0-M5"
@@ -18,6 +18,9 @@ spock = "2.3-groovy-4.0"
 micronaut-gradle-plugin = "4.0.0-M3"
 
 [libraries]
+# Core
+micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
+
 h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
 hibernate-ehcache = { module = 'org.hibernate:hibernate-ehcache', version.ref = 'hibernate-ehcache' }
 javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }
