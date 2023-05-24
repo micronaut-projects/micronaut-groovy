@@ -18,6 +18,9 @@ spock = "2.3-groovy-4.0"
 micronaut-gradle-plugin = "4.0.0-M1"
 
 [libraries]
+# Core
+micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
+
 h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
 hibernate-ehcache = { module = 'org.hibernate:hibernate-ehcache', version.ref = 'hibernate-ehcache' }
 javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }
