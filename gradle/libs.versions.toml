@@ -5,7 +5,7 @@ javaparser = '3.24.8'
 jaxb-api = '2.3.1'
 mongodb = '4.9.1'
 netty-native = '4.1.92.Final'
-testcontainers = '1.18.1'
+testcontainers = '1.18.3'
 tomcat-jdbc = '10.1.9'
 
 micronaut-docs = "2.0.0"
