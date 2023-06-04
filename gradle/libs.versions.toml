@@ -15,7 +15,7 @@ groovy = "4.0.11"
 spock = "2.3-groovy-4.0"
 
 # Plugins
-micronaut-gradle-plugin = "4.0.0-M1"
+micronaut-gradle-plugin = "4.0.0-SNAPSHOT"
 
 [libraries]
 # Core
