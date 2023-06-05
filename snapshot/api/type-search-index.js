@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"io.micronaut.function.groovy","l":"FunctionScript"},{"p":"io.micronaut.context.env.groovy","l":"GroovyPropertySourceLoader"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"io.micronaut.function.groovy","l":"FunctionScript"},{"p":"io.micronaut.function.groovy","l":"FunctionTransformVisitor"},{"p":"io.micronaut.context.env.groovy","l":"GroovyPropertySourceLoader"}];updateSearchResults();
