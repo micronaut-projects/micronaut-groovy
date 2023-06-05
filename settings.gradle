@@ -17,8 +17,6 @@ include 'runtime-groovy'
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
 micronautBuild {
-    // Required for 4.0.0-SNAPSHOT, can be removed after
-    addSnapshotRepository()
     useStandardizedProjectNames = true
     importMicronautCatalog()
 }

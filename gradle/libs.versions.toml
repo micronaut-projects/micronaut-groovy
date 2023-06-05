@@ -9,13 +9,13 @@ testcontainers = '1.18.3'
 tomcat-jdbc = '10.1.9'
 
 micronaut-docs = "2.0.0"
-micronaut = "4.0.0-M2"
-micronaut-test = "4.0.0-M2"
-groovy = "4.0.11"
+micronaut = "4.0.0-M6"
+micronaut-test = "4.0.0-M6"
+groovy = "4.0.12"
 spock = "2.3-groovy-4.0"
 
 # Plugins
-micronaut-gradle-plugin = "4.0.0-M1"
+micronaut-gradle-plugin = "4.0.0-M4"
 
 [libraries]
 # Core
