@@ -9,7 +9,7 @@ testcontainers = '1.19.3'
 tomcat-jdbc = '10.1.18'
 
 micronaut-docs = "2.0.0"
-micronaut = "4.1.11"
+micronaut = "4.2.3"
 micronaut-test = "4.0.0"
 groovy = "4.0.15"
 spock = "2.3-groovy-4.0"
