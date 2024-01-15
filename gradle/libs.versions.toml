@@ -6,7 +6,7 @@ jaxb-api = '2.3.1'
 mongodb = '4.11.0'
 netty-native = '4.1.100.Final'
 testcontainers = '1.19.3'
-tomcat-jdbc = '10.1.15'
+tomcat-jdbc = '10.1.18'
 
 micronaut-docs = "2.0.0"
 micronaut = "4.1.11"
