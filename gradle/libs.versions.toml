@@ -4,7 +4,7 @@ hibernate-ehcache = '5.6.14.Final'
 javaparser = '3.25.8'
 jaxb-api = '2.3.1'
 mongodb = '4.11.1'
-netty-native = '4.1.106.Final'
+netty-native = '4.1.107.Final'
 tomcat-jdbc = '10.1.18'
 
 micronaut-docs = "2.0.0"
