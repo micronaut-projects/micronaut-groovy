@@ -5,7 +5,6 @@ javaparser = '3.25.8'
 jaxb-api = '2.3.1'
 mongodb = '4.11.1'
 netty-native = '4.1.106.Final'
-tomcat-jdbc = '10.1.19'
 
 micronaut-docs = "2.0.0"
 micronaut = "4.3.0"
@@ -26,7 +25,6 @@ javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = '
 jaxb-api = { module = 'javax.xml.bind:jaxb-api', version.ref = 'jaxb-api' }
 mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref = 'mongodb' }
 netty-native = { module = 'io.netty:netty-transport-native-epoll', version.ref = 'netty-native' }
-tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
 
 groovy-test = { module = 'org.apache.groovy:groovy-test', version = '' }
 
