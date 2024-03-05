@@ -3,7 +3,6 @@ h2 = '2.2.224'
 hibernate-ehcache = '5.6.14.Final'
 javaparser = '3.25.8'
 jaxb-api = '2.3.1'
-mongodb = '5.0.0'
 netty-native = '4.1.106.Final'
 tomcat-jdbc = '10.1.18'
 
@@ -24,7 +23,6 @@ h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
 hibernate-ehcache = { module = 'org.hibernate:hibernate-ehcache', version.ref = 'hibernate-ehcache' }
 javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }
 jaxb-api = { module = 'javax.xml.bind:jaxb-api', version.ref = 'jaxb-api' }
-mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref = 'mongodb' }
 netty-native = { module = 'io.netty:netty-transport-native-epoll', version.ref = 'netty-native' }
 tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
 
