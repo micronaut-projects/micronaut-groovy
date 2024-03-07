@@ -1,5 +1,5 @@
 [versions]
-javaparser = '3.25.8'
+javaparser = '3.25.9'
 
 micronaut-docs = "2.0.0"
 micronaut = "4.3.9"
