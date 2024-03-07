@@ -1,10 +1,5 @@
 [versions]
-h2 = '2.2.224'
-hibernate-ehcache = '5.6.14.Final'
 javaparser = '3.25.8'
-jaxb-api = '2.3.1'
-mongodb = '4.11.1'
-tomcat-jdbc = '10.1.18'
 
 micronaut-docs = "2.0.0"
 micronaut = "4.3.9"
@@ -12,21 +7,10 @@ micronaut-test = "4.0.0"
 groovy = "4.0.15"
 spock = "2.3-groovy-4.0"
 
-# Plugins
-micronaut-gradle-plugin = "4.3.4"
-
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 
-h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
-hibernate-ehcache = { module = 'org.hibernate:hibernate-ehcache', version.ref = 'hibernate-ehcache' }
 javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }
-jaxb-api = { module = 'javax.xml.bind:jaxb-api', version.ref = 'jaxb-api' }
-mongodb-driver-sync = { module = 'org.mongodb:mongodb-driver-sync', version.ref = 'mongodb' }
-tomcat-jdbc = { module = 'org.apache.tomcat:tomcat-jdbc', version.ref = 'tomcat-jdbc' }
 
 groovy-test = { module = 'org.apache.groovy:groovy-test', version = '' }
-
-# Plugins
-gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
