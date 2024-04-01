@@ -27,7 +27,6 @@ import io.micronaut.runtime.server.EmbeddedServer
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
 import spock.lang.Ignore
-import spock.lang.PendingFeature
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
@@ -244,7 +243,6 @@ Test test(Test test) {
         function.messageService.messages.contains(message)
     }
 
-    @PendingFeature(reason = 'depends on fix for https://github.com/micronaut-projects/micronaut-core/issues/10580')
     void "test run JSON bi-consumer as REST service"() {
 
         given:
@@ -274,7 +272,6 @@ Test test(Test test) {
             server.stop()
     }
 
-    @PendingFeature(reason = 'depends on fix for https://github.com/micronaut-projects/micronaut-core/issues/10580')
     void "test run JSON function as REST service"() {
         given:
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
@@ -306,7 +303,6 @@ Test test(Test test) {
         server?.stop()
     }
 
-    @PendingFeature(reason = 'depends on fix for https://github.com/micronaut-projects/micronaut-core/issues/10580')
     void "test run function as REST service"() {
         given:
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
@@ -338,7 +334,6 @@ Test test(Test test) {
         server?.stop()
     }
 
-    @PendingFeature(reason = 'depends on fix for https://github.com/micronaut-projects/micronaut-core/issues/10580')
     void "test run supplier as REST service"() {
         given:
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
