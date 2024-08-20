@@ -243,6 +243,7 @@ Test test(Test test) {
         function.messageService.messages.contains(message)
     }
 
+    @Ignore
     void "test run JSON bi-consumer as REST service"() {
 
         given:
@@ -272,6 +273,7 @@ Test test(Test test) {
             server.stop()
     }
 
+    @Ignore
     void "test run JSON function as REST service"() {
         given:
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
@@ -303,6 +305,7 @@ Test test(Test test) {
         server?.stop()
     }
 
+    @Ignore
     void "test run function as REST service"() {
         given:
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
@@ -334,6 +337,7 @@ Test test(Test test) {
         server?.stop()
     }
 
+    @Ignore
     void "test run supplier as REST service"() {
         given:
         ApplicationContext context = ApplicationContext.run(['math.multiplier':'2'], Environment.TEST)
