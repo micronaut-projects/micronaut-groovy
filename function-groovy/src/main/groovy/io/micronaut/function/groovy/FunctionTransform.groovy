@@ -95,6 +95,8 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
     private static final ClassNode INTERNAL_ANNOTATION = ClassHelper.make(Internal)
     private static final ClassNode INJECT_ANNOTATION = ClassHelper.make(Inject)
 
+    private final Set<String> processed = new HashSet<>();
+
     @Override
     void visit(ASTNode[] nodes, SourceUnit source) {
 
@@ -107,6 +109,9 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
             }
         }
         for (node in source.getAST().classes) {
+            if (!processed.add(node.name)) {
+                continue
+            }
             if (node.isScript()) {
                 node.setSuperClass(ClassHelper.makeCached(FunctionScript))
                 List<MethodNode> methods = node.methods.findAll() { method ->
@@ -153,10 +158,10 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
 
                     closureExpression.setVariableScope(variableScope)
                     mainMethod.setCode(
-                        block(
-                            declS(thisInstance, ctorX(node)),
-                            stmt(callX(thisInstance, "run", args(varX(argParam), closureExpression)))
-                        )
+                            block(
+                                    declS(thisInstance, ctorX(node)),
+                                    stmt(callX(thisInstance, "run", args(varX(argParam), closureExpression)))
+                            )
                     )
                     def code = runMethod.getCode()
                     def appCtx = varX("applicationContext")
@@ -183,7 +188,7 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                                     def setPropertyTransformer = new SetPropertyTransformer(source)
                                     setPropertyTransformer.setPropertyMethodName = "addProperty"
                                     constructorBody.addStatement(
-                                        stmt(setPropertyTransformer.transform(exp))
+                                            stmt(setPropertyTransformer.transform(exp))
                                     )
                                 }
                             }
@@ -191,12 +196,12 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                     }
 
                     constructorBody.addStatement(block(
-                        stmt(
-                            callX(varX("this"), "startEnvironment", appCtx)
-                        ),
-                        stmt(
-                            callX(appCtx, "inject", varX("this"))
-                        )
+                            stmt(
+                                    callX(varX("this"), "startEnvironment", appCtx)
+                            ),
+                            stmt(
+                                    callX(appCtx, "inject", varX("this"))
+                            )
                     ))
                     ConstructorNode constructorNode = new ConstructorNode(Modifier.PUBLIC, constructorBody)
                     node.declaredConstructors.clear()
@@ -204,12 +209,12 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                     def ctxParam = param(ClassHelper.make(ApplicationContext), "ctx")
 
                     def applicationContextConstructor = new ConstructorNode(
-                        Modifier.PUBLIC,
-                        params(ctxParam),
-                        null,
-                        stmt(
-                            ctorX(ClassNode.SUPER, varX(ctxParam))
-                        )
+                            Modifier.PUBLIC,
+                            params(ctxParam),
+                            null,
+                            stmt(
+                                    ctorX(ClassNode.SUPER, varX(ctxParam))
+                            )
                     )
                     for (field in node.getFields()) {
                         AnnotationMetadata annotationMetadata = new GroovyAnnotationMetadataBuilder(source, compilationUnit).lookupOrBuildForType(field)
@@ -234,7 +239,7 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                     functionBean.setMember("method", constX(functionMethod.name))
                     node.addAnnotation(functionBean)
                     node.addConstructor(
-                        applicationContextConstructor
+                            applicationContextConstructor
                     )
 
                     if (isVoidReturn) {
@@ -309,8 +314,8 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
             genericsTypes.add(new GenericsType(returnType))
         }
         classNode.addInterface(GenericsUtils.makeClassSafeWithGenerics(
-            ClassHelper.make(functionType).plainNodeReference,
-            genericsTypes as GenericsType[]
+                ClassHelper.make(functionType).plainNodeReference,
+                genericsTypes as GenericsType[]
         ))
         List<Parameter> params = []
         int i = 0
@@ -321,7 +326,7 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
             argList.addExpression(varX(p))
         }
         def mn = new MethodNode(methodName, Modifier.PUBLIC, returnType, params as Parameter[], null, stmt(
-            callX(varX("this"), functionMethod.getName(), argList))
+                callX(varX("this"), functionMethod.getName(), argList))
         )
         mn.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
         classNode.addMethod(mn)
