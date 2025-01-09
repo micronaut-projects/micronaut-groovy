@@ -6,3 +6,7 @@ repositories {
     gradlePluginPortal()
     mavenCentral()
 }
+
+dependencies {
+    implementation(libs.sonatype.scan)
+}

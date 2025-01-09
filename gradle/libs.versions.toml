@@ -6,6 +6,7 @@ micronaut = "4.7.11"
 micronaut-test = "4.5.0"
 groovy = "4.0.18"
 spock = "2.3-groovy-4.0"
+sonatype-scan = "3.0.0"
 
 [libraries]
 # Core
@@ -14,3 +15,4 @@ micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'mi
 javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }
 
 groovy-test = { module = 'org.apache.groovy:groovy-test', version = '' }
+sonatype-scan = { module = "org.sonatype.gradle.plugins:scan-gradle-plugin", version.ref = "sonatype-scan" }
