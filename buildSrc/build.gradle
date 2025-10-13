@@ -8,5 +8,4 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.sonatype.scan)
 }
