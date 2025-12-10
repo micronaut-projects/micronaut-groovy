@@ -1,7 +1,7 @@
 [versions]
 javaparser = '3.27.1'
 micronaut-docs = "3.0.0"
-micronaut = "4.10.8"
+micronaut = "4.10.9"
 micronaut-test = "4.10.1"
 groovy = "4.0.18"
 spock = "2.3-groovy-4.0"
