@@ -225,7 +225,7 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
                         }
                         def setterName = getSetterName(field.getName())
                         def setterMethod = node.getMethod(setterName, params(param(field.getType(), "arg")))
-                        if (setterMethod != null) {
+                        if (setterMethod != null && !setterMethod.returnType.equals(ClassHelper.VOID_TYPE)) {
                             setterMethod.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
                         }
                     }
@@ -279,7 +279,6 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
         def mn = new MethodNode("get", Modifier.PUBLIC, returnType, new Parameter[0], null, stmt(
                 callX(varX("this"), functionMethod.getName())
         ))
-        mn.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
         node.addMethod(mn)
     }
 
@@ -328,7 +327,6 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
         def mn = new MethodNode(methodName, Modifier.PUBLIC, returnType, params as Parameter[], null, stmt(
                 callX(varX("this"), functionMethod.getName(), argList))
         )
-        mn.addAnnotation(new AnnotationNode(INTERNAL_ANNOTATION))
         classNode.addMethod(mn)
     }
 }
