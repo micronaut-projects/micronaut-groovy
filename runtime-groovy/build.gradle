@@ -7,3 +7,9 @@ dependencies {
 
     implementation mn.micronaut.inject
 }
+
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.groovy:micronaut-runtime-groovy"
+    }
+}
