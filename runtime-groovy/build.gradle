@@ -6,6 +6,7 @@ dependencies {
     api mn.groovy
 
     implementation mn.micronaut.inject
+    implementation("io.micronaut:micronaut-module-info:5.0.0-M6")
 }
 
 micronautBuild {
