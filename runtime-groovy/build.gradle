@@ -2,6 +2,12 @@ plugins {
     id 'io.micronaut.build.internal.groovy-module'
 }
 
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.groovy:micronaut-runtime-groovy"
+    }
+}
+
 dependencies {
     api mn.groovy
 

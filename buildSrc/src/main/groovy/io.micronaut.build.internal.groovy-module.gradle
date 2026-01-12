@@ -5,9 +5,6 @@ plugins {
 
 micronautBuild {
     enableBom = false
-    descriptor {
-        parentModuleId = "io.micronaut.groovy:micronaut-runtime-groovy"
-    }
 }
 
 // Apply BOM to resolve micronaut-module-info version added by Micronaut 5 build plugin
