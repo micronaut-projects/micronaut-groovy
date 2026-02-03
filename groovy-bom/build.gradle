@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    api platform("org.apache.groovy:groovy-bom:${libs.versions.groovy.get()}")
+    api platform("org.apache.groovy:groovy-bom:${mn.versions.groovy.get()}")
 }
 
 micronautBom {
