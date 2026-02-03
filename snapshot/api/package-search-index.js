@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.micronaut.context.env.groovy"},{"l":"io.micronaut.function.groovy"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.micronaut.context.env.groovy"},{"l":"io.micronaut.function.groovy"},{"l":"io.micronaut.groovy.info"}];updateSearchResults();
