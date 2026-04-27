@@ -1,9 +1,5 @@
 [versions]
-javaparser = '3.28.0'
 micronaut = "5.0.0-M24"
 
 [libraries]
-# Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
-
-javaparser = { module = 'com.github.javaparser:javaparser-core', version.ref = 'javaparser' }

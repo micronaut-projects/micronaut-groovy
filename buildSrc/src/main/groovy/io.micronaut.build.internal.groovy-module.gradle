@@ -17,8 +17,7 @@ configurations {
 }
 
 dependencies {
-    documentation libs.javaparser
-
+    documentation("com.github.javaparser:javaparser-core:${mn.versions.java.parser.core.get()}")
     testImplementation mn.micronaut.runtime
 }
 
