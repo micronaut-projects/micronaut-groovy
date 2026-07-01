@@ -1,5 +1,5 @@
 [versions]
-micronaut = "5.1.1"
+micronaut = "5.1.3"
 
 [libraries]
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
