@@ -26,7 +26,6 @@ import io.micronaut.http.client.HttpClient
 import io.micronaut.runtime.server.EmbeddedServer
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
-import spock.lang.Ignore
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
@@ -180,8 +179,6 @@ int round(float value) {
         functionClass
     }
 
-    //TODO: Fix me and remove @Ignore
-    @Ignore
     void 'test parse JSON marshalling function'() {
         given:
         CompilerConfiguration configuration = new CompilerConfiguration()
@@ -193,6 +190,7 @@ package test
 class Test { String name }
 ''')
         Class functionClass = gcl.parseClass('''
+package test
 import test.*
 
 Test test(Test test) {
