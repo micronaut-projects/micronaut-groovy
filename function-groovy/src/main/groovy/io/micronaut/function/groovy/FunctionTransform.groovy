@@ -260,7 +260,9 @@ class FunctionTransform implements ASTTransformation, CompilationUnitAware {
 
                         }
                     }
-                    new InjectTransform().visit(nodes, source)
+                    def injectTransform = new InjectTransform()
+                    injectTransform.setCompilationUnit(compilationUnit)
+                    injectTransform.visit(nodes, source)
                 }
 
             }

@@ -16,6 +16,7 @@
 package io.micronaut.function.groovy
 
 import io.micronaut.ast.groovy.visitor.GroovyClassElement
+import io.micronaut.ast.groovy.visitor.GroovyVisitorContext
 import io.micronaut.function.FunctionBean
 import io.micronaut.http.annotation.Body
 import io.micronaut.inject.ast.ClassElement
@@ -38,6 +39,7 @@ class FunctionTransformVisitor implements TypeElementVisitor<Object, Object> {
     @Override
     void visitClass(ClassElement element, VisitorContext context) {
         SourceUnit sourceUnit = ((GroovyClassElement) element).@sourceUnit
+        functionTransform.setCompilationUnit(((GroovyVisitorContext) context).compilationUnit)
         functionTransform.visit(new ASTNode[0], sourceUnit)
         element.getAnnotationMetadata().stringValue(FunctionBean.class, "method").ifPresent(m ->
                 element.getEnclosedElement(ElementQuery.ALL_METHODS.onlyInstance().named(methodName -> methodName == m))
